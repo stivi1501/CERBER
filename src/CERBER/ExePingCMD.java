@@ -3,12 +3,15 @@ package CERBER;
 public class ExePingCMD {
 	static PingCMD Pin;
 	static JdbcConect jc;
+	static PingPocket pp=  new PingPocket();
 	
 public static void main(String[] args) 
 {
-	jc.jdbc_reqest();
-	/*
-	PingCMD.PingExe("192.168.1.254","4");
+	pp=JdbcConect.jdbc_reqest_ip_ping();
+	
+	System.out.println(pp.ip);
+	
+	PingCMD.PingExe(pp.ip,pp.pocket);
 	System.out.println(PingCMD.GetDest());
 	System.out.println(PingCMD.GetMinping());
 	System.out.println(PingCMD.GetMaxping());
@@ -16,7 +19,7 @@ public static void main(String[] args)
 	System.out.println(PingCMD.GetSent());
 	System.out.println(PingCMD.GetReceive());
 	System.out.println(PingCMD.GetLost());
-	*/
+	
 }
 	
 }
