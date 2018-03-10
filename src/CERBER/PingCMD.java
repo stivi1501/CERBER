@@ -48,7 +48,7 @@ public static void main(String[] args)
     	    	IsOk=true;
     			if (IsOk==true) {out+=line;};
     		}
-    	    //System.out.println(out);
+    	    System.out.println(out);
     	} catch (IOException e) {e.printStackTrace();} 
     	if (out!=null)
     	{
@@ -60,7 +60,7 @@ public static void main(String[] args)
     		lost		=(out.substring(out.indexOf(", Lost =")	,out.indexOf(" ("))			 .replace(", Lost =", "")		.replace(" ", ""));
     		unreachable	=CountStringInString(out, "unreachable");
     		
-        	if (out.contains("Minium")==true) 
+        	if (out.contains("Approximate")==true) 
         	{
             		aveping	=(out.substring(out.indexOf("Ave")		,out.length()))				 .replace("Average = ","")		.replace("ms", "").replace(" ", "");
             		maxping	=(out.substring(out.indexOf("Maxim")	,out.indexOf("Ave"))		 .replace("Maximum = ","")		.replace("ms", "").replace(" ", "").replace(",",""));

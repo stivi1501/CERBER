@@ -65,4 +65,23 @@ public static void jdbc_reqest_ip_ping_insert(String ip,String minping,String ma
 		                        }
 }  	
 
+public static void jdbc_reqest_ip_ping_update(String ip,String unix_start) 
+{
+	String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
+	String query = "update ping_plan set status=1 where ip='"+ip+"' AND unix_start="+unix_start+"";         
+	Connection conn = null;           
+	try {
+	     conn = DriverManager.getConnection(polaczenieURL);
+	      Class.forName("com.mysql.jdbc.Driver");
+	      Statement stmt = conn.createStatement();
+	      stmt.executeUpdate(query);
+	     conn.close();
+	}
+	catch(ClassNotFoundException wyjatek) {System.out.println("Problem ze sterownikiem");}
+	catch(SQLException wyjatek) {
+		                         System.out.println("SQLException: " + wyjatek.getMessage());
+		                         System.out.println("SQLState: "     + wyjatek.getSQLState());
+		                         System.out.println("VendorError: "  + wyjatek.getErrorCode());
+		                        }
+}  	
 }
