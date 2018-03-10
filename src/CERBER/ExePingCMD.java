@@ -7,7 +7,9 @@ public class ExePingCMD {
 
 	
 public static void main(String[] args) 
-{   JdbcConect.jdbc_reqest_ip_ping_proc();
+{   
+	JdbcConect.jdbc_reqest_ip_ping_proc();
+	
     if (JdbcConect.jdbc_reqest_ip_ping_count_status_1()==1)
 	{
 	pp=JdbcConect.jdbc_reqest_ip_ping();
@@ -27,6 +29,7 @@ public static void main(String[] args)
 	System.out.println("Los "+PingCMD.GetLost());
 	System.out.println("Unr "+PingCMD.GetUnreach());	
 	System.out.println("Err "+PingCMD.GetErro());
+	
 	
 }
 	

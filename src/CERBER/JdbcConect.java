@@ -13,7 +13,7 @@ public static PingPocket jdbc_reqest_ip_ping() {
 	String r2 = "";
 	String r3 = "";
 	String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
-	String query = "Select ip,pocket_sent,unix_start FROM ping_plan where status=0 and unix_start<now() order by unix_start limit 1";         
+	String query = "Select ip,pocket_sent,unix_start FROM ping_plan where status=0 and unix_start<now() and type='p' order by unix_start limit 1";         
 	Connection conn = null;           
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);
