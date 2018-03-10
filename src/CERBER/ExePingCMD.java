@@ -9,11 +9,13 @@ public class ExePingCMD {
 public static void main(String[] args) 
 {
 	pp=JdbcConect.jdbc_reqest_ip_ping();
-	JdbcConect.jdbc_reqest_ip_ping_update(pp.ip,pp.unix_start);
+	JdbcConect.jdbc_reqest_ip_ping_update1(pp.ip,pp.unix_start);
 	PingCMD.PingExe(pp.ip,pp.pocket);
 
 	JdbcConect.jdbc_reqest_ip_ping_insert(PingCMD.GetDest(),PingCMD.GetMinping(),PingCMD.GetMaxping(),PingCMD.GetAveping(),PingCMD.GetSent(),PingCMD.GetReceive(),PingCMD.GetLost(),PingCMD.GetUnreach(),PingCMD.GetErro());
 
+	JdbcConect.jdbc_reqest_ip_ping_update2(pp.ip,pp.unix_start);
+	
 	System.out.println("IP "+PingCMD.GetDest());
 	System.out.println("Min "+PingCMD.GetMinping());
 	System.out.println("Max "+PingCMD.GetMaxping());
