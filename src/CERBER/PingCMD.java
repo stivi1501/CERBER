@@ -48,7 +48,7 @@ public static void main(String[] args)
     	    	IsOk=true;
     			if (IsOk==true) {out+=line;};
     		}
-    	    System.out.println(out);
+    	  //  System.out.println(out);
     	} catch (IOException e) {e.printStackTrace();} 
     	if (out!=null)
     	{
@@ -101,7 +101,7 @@ public static void main(String[] args)
 		ra=przy.indexOf(fin)+fin.length();
 		przy=przy.substring(ra, leng);
 		}; 
-		System.out.println(coun);
+		//System.out.println(coun);
 		return Integer.toString(coun);
 	}; 
 	
