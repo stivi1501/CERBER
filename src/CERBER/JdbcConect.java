@@ -17,7 +17,7 @@ String r1 = "";
 String r2 = "";
 
 String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
-String query = "Select * FROM ping_plan where status=0 and unix_start<now() order by unix_start limit 2";         
+String query = "Select * FROM ping_plan where status=0 and unix_start<now() order by unix_start limit 1";         
 Connection conn = null;           
 try {
      conn = DriverManager.getConnection(polaczenieURL);
