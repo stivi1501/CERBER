@@ -11,13 +11,9 @@ public class ExePingCMD {
 	
 public static void main(String[] args) 
 {
-
-
-	
-	
-
 	pp=JdbcConect.jdbc_reqest_ip_ping();	
 	PingCMD.PingExe(pp.ip,pp.pocket);
+	JdbcConect.jdbc_reqest_ip_ping_insert(PingCMD.GetDest(),PingCMD.GetMinping(),PingCMD.GetMaxping(),PingCMD.GetAveping(),PingCMD.GetSent(),PingCMD.GetReceive(),PingCMD.GetLost(),PingCMD.GetUnreach(),PingCMD.GetErro());
 
 	System.out.println("IP "+PingCMD.GetDest());
 	System.out.println("Min "+PingCMD.GetMinping());
