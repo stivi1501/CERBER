@@ -1,36 +1,46 @@
 package CERBER;
 
+import java.io.IOException;
+
 public class ExePingCMD {
 	static PingCMD Pin;
 	static JdbcConect jc;
+	static SocketCheck sc;
 	static PingPocket pp=  new PingPocket();
 
 	
-public static void main(String[] args) 
+public static void main(String[] args)
 {   
-	JdbcConect.jdbc_reqest_ip_ping_proc();
-	
-    if (JdbcConect.jdbc_reqest_ip_ping_count_status_1()==1)
+	JdbcConect.jdbc_reqest_cerber_proc();
+    if (JdbcConect.jdbc_reqest_cerber_count_status_1("p")==1)
 	{
 	pp=JdbcConect.jdbc_reqest_ip_ping();
-	JdbcConect.jdbc_reqest_ip_ping_update1(pp.ip,pp.unix_start);
-	PingCMD.PingExe(pp.ip,pp.pocket);
-
-	JdbcConect.jdbc_reqest_ip_ping_insert(PingCMD.GetDest(),PingCMD.GetMinping(),PingCMD.GetMaxping(),PingCMD.GetAveping(),PingCMD.GetSent(),PingCMD.GetReceive(),PingCMD.GetLost(),PingCMD.GetUnreach(),PingCMD.GetErro());
-
-	JdbcConect.jdbc_reqest_ip_ping_update2(pp.ip,pp.unix_start);
+	JdbcConect.jdbc_reqest_cerber_update1(pp.ip,pp.unix_start,"p");
+	PingCMD.PingExe(pp.ip,pp.nn);
+	JdbcConect.jdbc_reqest_ping_insert(PingCMD.GetDest(),PingCMD.GetMinping(),PingCMD.GetMaxping(),PingCMD.GetAveping(),PingCMD.GetSent(),PingCMD.GetReceive(),PingCMD.GetLost(),PingCMD.GetUnreach(),PingCMD.GetErro());
+	JdbcConect.jdbc_reqest_cerber_update2(pp.ip,pp.unix_start,"p");
 	};
-	System.out.println("IP "+PingCMD.GetDest());
-	System.out.println("Min "+PingCMD.GetMinping());
-	System.out.println("Max "+PingCMD.GetMaxping());
-	System.out.println("Ave "+PingCMD.GetAveping());
-	System.out.println("Sen "+PingCMD.GetSent());
-	System.out.println("Rec "+PingCMD.GetReceive());
-	System.out.println("Los "+PingCMD.GetLost());
-	System.out.println("Unr "+PingCMD.GetUnreach());	
-	System.out.println("Err "+PingCMD.GetErro());
+
 	
+	JdbcConect.jdbc_reqest_cerber_proc();
+    if (JdbcConect.jdbc_reqest_cerber_count_status_1("s")==1)
+	{
+    System.out.println("*****************************");
+	pp=JdbcConect.jdbc_reqest_ip_sock();
+	System.out.println(pp.ip);
 	
+	JdbcConect.jdbc_reqest_cerber_update1(pp.ip,pp.unix_start,"s");
+	if (SocketCheck.check(pp.ip,Integer.parseInt(pp.nn)))
+	{
+		JdbcConect.jdbc_reqest_sock_insert(pp.ip,Integer.parseInt(pp.nn), 1);
+	}
+	else
+	{
+		JdbcConect.jdbc_reqest_sock_insert(pp.ip,Integer.parseInt(pp.nn), 0);	
+	};		
+	JdbcConect.jdbc_reqest_cerber_update2(pp.ip,pp.unix_start,"s");
+	};
+
 }
 	
 }
