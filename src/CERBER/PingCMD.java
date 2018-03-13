@@ -8,30 +8,18 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class PingCMD {
-	private static String n ="4";
-	private static String dest ="";
-	private static String minping="0";
-	private static String maxping="0";
-	private static String aveping="0";
-	private static String sent="0";
-	private static String receive="0";
-	private static String lost="0";
-	private static String erro="0";
-	private static String unreachable ="0";
-/*	
-public static void main(String[] args) 
-{
-	PingCMD.PingExe("onet.pl","4");
-	System.out.println(GetDest());
-	System.out.println(GetMinping());
-	System.out.println(GetMaxping());
-	System.out.println(GetAveping());
-	System.out.println(GetSent());
-	System.out.println(GetReceive());
-	System.out.println(GetLost());
-}
-*/
-	public static  void PingExe(String ipdes,String nn)
+	private String n ="4";
+	private String dest ="";
+	private String minping="0";
+	private String maxping="0";
+	private String aveping="0";
+	private String sent="0";
+	private String receive="0";
+	private String lost="0";
+	private String erro="0";
+	private String unreachable ="0";
+
+	public void PingExe(String ipdes,String nn)
 	{    	
 		n=nn;
 		String command = "ping "+ipdes+" -n "+n;
@@ -48,7 +36,7 @@ public static void main(String[] args)
     	    	IsOk=true;
     			if (IsOk==true) {out+=line;};
     		}
-    	  //  System.out.println(out);
+    	    System.out.println("Ping wyslany na "+ipdes);
     	} catch (IOException e) {e.printStackTrace();} 
     	if (out!=null)
     	{
@@ -78,17 +66,31 @@ public static void main(String[] args)
     	}
 	}
 
-	public static String GetDest() 			   {if (dest!=null) {return dest;} else {return "puste";}};
-	public static String GetMinping() 		   {if (dest!=null) {return minping;} else {return "";}};
-	public static String GetMaxping() 		   {return maxping;};
-	public static String GetAveping() 		   {return aveping;};
-	public static String GetSent() 			   {return sent;};
-	public static String GetUnreach() 		   {return unreachable;};
-	public static String GetReceive() 		   {return receive;};
-	public static String GetLost() 			   {return lost;};
-	public static String GetErro() 			   {return erro;};
+	public String GetDest() 			   {if (dest!=null) {return dest;} else {return "puste";}};
+	public String GetMinping() 		   {if (dest!=null) {return minping;} else {return "";}};
+	public String GetMaxping() 		   {return maxping;};
+	public String GetAveping() 		   {return aveping;};
+	public String GetSent() 			   {return sent;};
+	public String GetUnreach() 		   {return unreachable;};
+	public String GetReceive() 		   {return receive;};
+	public String GetLost() 			   {return lost;};
+	public String GetErro() 			   {return erro;};
 	
-	public static String CountStringInString(String przy,String fin) 
+	public PingRes GetPingRes()
+	{
+		PingRes jj = new PingRes();
+		jj.dest=dest; 
+		jj.minping=minping;
+		jj.maxping=maxping;
+		jj.aveping=aveping;
+		jj.sent=sent;
+		jj.receive=receive;
+		jj.unreachable=unreachable;
+		jj.lost=lost;
+		return jj;
+	};
+	
+	public String CountStringInString(String przy,String fin) 
 	{
 		int leng;
 		int ra;
