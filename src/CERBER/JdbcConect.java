@@ -7,8 +7,26 @@ import java.util.List;
 
 public class JdbcConect {
 	static List<PingRes> lista = new ArrayList<PingRes>(); //lista pusta
-	
-	
+
+public static void jdbc_reqest_sock_insert(String ipp,int portt,int ok_noo) 
+	{
+		String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
+		String query = "INSERT INTO socket_results(ip,port,ok_no) SELECT '"+ipp+"',"+portt+","+ok_noo+"";         
+		Connection conn = null;           
+		try {
+		     conn = DriverManager.getConnection(polaczenieURL);
+		      Class.forName("com.mysql.jdbc.Driver");
+		      Statement stmt = conn.createStatement();
+		      stmt.executeUpdate(query);
+		     conn.close();
+		}
+		catch(ClassNotFoundException wyjatek) {System.out.println("Problem ze sterownikiem");}
+		catch(SQLException wyjatek) {
+			                         System.out.println("SQLException: " + wyjatek.getMessage());
+			                         System.out.println("SQLState: "     + wyjatek.getSQLState());
+			                         System.out.println("VendorError: "  + wyjatek.getErrorCode());
+			                        }
+	} 
 public static void JdbcConect_result(int  maks)
 {
 	System.out.println("KONIEC : "+maks);
