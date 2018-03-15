@@ -38,7 +38,7 @@ public static void JdbcConect_pingresult(int  maks)
 	//	System.out.println("---"+lista1.get(i).dest+"  "+lista1.get(i).sent);	
 		jdbc_plan_cerber_ping(lista1.get(i));
 	};
-	if (lista1.size()>(maks-1)) {System.out.println("KONIEC");}; 
+	//if (lista1.size()>(maks-1)) {System.out.println("KONIEC");}; 
 }
 
 public static void JdbcConect_sockresult(int  maks)
@@ -49,7 +49,7 @@ public static void JdbcConect_sockresult(int  maks)
 	{
 		jdbc_plan_cerber_sock(lista2.get(i));
 	};
-	if (lista2.size()>(maks-1)) {System.out.println("KONIEC");}; 
+	//if (lista2.size()>(maks-1)) {System.out.println("KONIEC");}; 
 }
 
 public static void add_PingRes(PingRes oo)

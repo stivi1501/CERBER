@@ -64,6 +64,7 @@ public class PingCMD {
             erro	="1"; //"Request timed out" 
     	}
     	}
+    	 System.out.println("Ping na "+ipdes+" Sent "+sent+" Receive "+receive);
 	}
 
 	public String GetDest() 			   {if (dest!=null) {return dest;} else {return "puste";}};

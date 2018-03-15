@@ -2,17 +2,23 @@ package CERBER;
 
 public class Cerber  {
     public static PP zad = new PP();	
-    static int maksp=50;
-    static int makss=50; 
-    static int maks=makss+maksp; 
+    static int ActiveThread=0;
+ 
+    
     public static void main(String[] args) {
+  
+         JdbcConect.jdbc_plan_cerber_proc();    
+         
+        int maksp=JdbcConect.jdbc_count_dop(); //ile jest do zrobienia wszystkich z pingiem
+        int makss=JdbcConect.jdbc_count_dos(); //ile jest do zrobienia wszystkich z socketem
+        int maks=makss+maksp;
+
+        
         Runnable[] runners = new Runnable[maks];
         Thread[]   threads = new   Thread[maks];
         
-        JdbcConect.jdbc_plan_cerber_proc();  
-        if (maksp>JdbcConect.jdbc_count_dop())  {maksp=JdbcConect.jdbc_count_dop();};
-        if (makss>JdbcConect.jdbc_count_dos())  {makss=JdbcConect.jdbc_count_dos();}; 
-        //System.out.println("ppp"+JdbcConect.jdbc_count_dop());
+
+
         for(int i=0; i<=maks; i++) 
          {
             zad=JdbcConect.jdbc_PPOnId(i+1);

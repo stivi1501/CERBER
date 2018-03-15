@@ -16,7 +16,7 @@ public class SocketCheck {
       } catch (IOException e) {
     	  ok_no=false;
       }
-      System.out.println(host+":"+port+">>"+ok_no);
+      System.out.println("TCP na "+host+":"+port+">>"+ok_no);
       return ok_no;
    }
    private static void printSocketInfo(Socket s) {
