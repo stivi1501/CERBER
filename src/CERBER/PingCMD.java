@@ -36,7 +36,7 @@ public class PingCMD {
     	    	IsOk=true;
     			if (IsOk==true) {out+=line;};
     		}
-    	    System.out.println("Ping wyslany na "+ipdes);
+    	  //  System.out.println("Ping wyslany na "+ipdes);
     	} catch (IOException e) {e.printStackTrace();} 
     	if (out!=null)
     	{

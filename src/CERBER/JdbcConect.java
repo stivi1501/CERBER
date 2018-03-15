@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JdbcConect {
-	static List<PingRes> lista = new ArrayList<PingRes>(); //lista pusta
+	static List<PingRes> lista1 = new ArrayList<PingRes>(); //lista pusta
+	static List<SockRes> lista2 = new ArrayList<SockRes>(); //lista pusta
 
-public static void jdbc_reqest_sock_insert(String ipp,int portt,int ok_noo) 
+	public static void jdbc_reqest_sock_insert(String ipp,int portt,int ok_noo) 
 	{
 		String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
 		String query = "INSERT INTO socket_results(ip,port,ok_no) SELECT '"+ipp+"',"+portt+","+ok_noo+"";         
@@ -27,21 +28,40 @@ public static void jdbc_reqest_sock_insert(String ipp,int portt,int ok_noo)
 			                         System.out.println("VendorError: "  + wyjatek.getErrorCode());
 			                        }
 	} 
-public static void JdbcConect_result(int  maks)
+
+public static void JdbcConect_pingresult(int  maks)
 {
-	System.out.println("KONIEC : "+maks);
-	if (lista.size()>(maks-1))
-	for(int i=0; i<lista.size(); i++)
+	//System.out.println("KONIEC : "+maks);
+	if (lista1.size()>(maks-1))
+	for(int i=0; i<lista1.size(); i++)
 	{
-		System.out.println("---"+lista.get(i).dest+"  "+lista.get(i).sent);	
-		jdbc_plan_cerber_ping(lista.get(i));
+	//	System.out.println("---"+lista1.get(i).dest+"  "+lista1.get(i).sent);	
+		jdbc_plan_cerber_ping(lista1.get(i));
 	};
-	if (lista.size()>(maks-1)) {System.out.println("KONIEC");}; 
+	if (lista1.size()>(maks-1)) {System.out.println("KONIEC");}; 
+}
+
+public static void JdbcConect_sockresult(int  maks)
+{
+	//System.out.println("KONIEC : "+maks);
+	if (lista2.size()>(maks-1))
+	for(int i=0; i<lista2.size(); i++)
+	{
+		jdbc_plan_cerber_sock(lista2.get(i));
+	};
+	if (lista2.size()>(maks-1)) {System.out.println("KONIEC");}; 
 }
 
 public static void add_PingRes(PingRes oo)
 {
-	lista.add(oo);	
+	lista1.add(oo);	
+}
+
+public static void add_SockRes(SockRes oo)
+{
+	lista2.add(oo);	
+	//System.out.println("Dodano "+oo.dest+":"+oo.n+"="+oo.ok_no);
+	//System.out.println(pr.dest+":"+pr.n+">>"+pr.ok_no);
 }
 public static void jdbc_reqest_cerber_update1(String ip,String unix_start,String typee) 
 {
@@ -92,6 +112,26 @@ public static void jdbc_plan_cerber_ping(PingRes pr)
 	      Statement stmt = conn.createStatement();
 	      stmt.executeUpdate(query);
 	     conn.close();
+	}
+	catch(ClassNotFoundException wyjatek) {System.out.println("Problem ze sterownikiem");}
+	catch(SQLException wyjatek) {
+		                         System.out.println("SQLException: " + wyjatek.getMessage());
+		                         System.out.println("SQLState: "     + wyjatek.getSQLState());
+		                         System.out.println("VendorError: "  + wyjatek.getErrorCode());
+		                        }
+} 
+public static void jdbc_plan_cerber_sock(SockRes pr) 
+{
+	String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
+	String query = "INSERT INTO socket_results(ip,port,ok_no) SELECT '"+pr.dest+"',"+pr.n+","+pr.ok_no+"";         
+	Connection conn = null;           
+	try {
+	     conn = DriverManager.getConnection(polaczenieURL);
+	      Class.forName("com.mysql.jdbc.Driver");
+	      Statement stmt = conn.createStatement();
+	      stmt.executeUpdate(query);
+	     conn.close();
+	    // System.out.println(pr.dest+":"+pr.n+">>"+pr.ok_no);
 	}
 	catch(ClassNotFoundException wyjatek) {System.out.println("Problem ze sterownikiem");}
 	catch(SQLException wyjatek) {

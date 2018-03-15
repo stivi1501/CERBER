@@ -21,6 +21,6 @@ public void run()
     jc.jdbc_reqest_cerber_update2(zadanie.getip(), zadanie.getunix_start(),zadanie.gettask());
     pinres=GetPingRes();
     jc.add_PingRes(pinres);
-    jc.JdbcConect_result(maks);
+    jc.JdbcConect_pingresult(maks);
 }	
 }

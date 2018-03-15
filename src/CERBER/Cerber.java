@@ -18,14 +18,13 @@ public class Cerber  {
             zad=JdbcConect.jdbc_PPOnId(i+1);
         	if (zad.ip!="") 
         	{
+        		try {Thread.sleep(100);} catch (InterruptedException e) {e.printStackTrace();}
         		if (zad.task.equals("p")) 
         		 {
         			runners[i] = new CerberPing(i,zad,maksp);
-        			//runners[i] = new CerberSock(i,zad,makss);
         		 }
         		else 
         		 {
-        			//runners[i] = new CerberPing(i,zad,makss);
         			runners[i] = new CerberSock(i,zad,makss);
         		 };
         	};
