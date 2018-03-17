@@ -4,4 +4,4 @@ Projekt ma za zadanie wytworzyć narzędzie do kontroli widoczności urządzeń 
 Środowisko uruchomieniowe:</BR>
 - Microsoft Windows 10 (z działającą komendą ping),</BR>
 - Java 1.8,</BR>
-- Xampp (wyksorzystywana jedynie baza MariaDB <klon MySQL>),</BR>
+- Xampp (wykrzystywana jedynie baza MariaDB <klon MySQL>),</BR>
