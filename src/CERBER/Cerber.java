@@ -1,5 +1,8 @@
 package CERBER;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Cerber  {
     public static PP zad = new PP();	
     static int ActiveThread=0;
@@ -22,6 +25,7 @@ public class Cerber  {
         for(int i=0; i<=maks; i++) 
          {
             zad=JdbcConect.jdbc_PPOnId(i+1);
+            zad.time_res =datetime_now() ;
         	if (zad.ip!="") 
         	{
         		try {Thread.sleep(100);} catch (InterruptedException e) {e.printStackTrace();}
@@ -39,4 +43,12 @@ public class Cerber  {
         for(int i=0; i<maks; i++) {threads[i].start();}
     }
 	
+    public static String datetime_now() 
+    {
+    	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    	LocalDateTime now = LocalDateTime.now();
+    	System.out.println(dtf.format(now));
+    	return dtf.format(now);
+
+    }  	
 }

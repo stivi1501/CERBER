@@ -12,4 +12,6 @@ public class PingRes
 	public String lost="0";
 	public String erro="0";
 	public String unreachable ="0";
+	public String time_cmd;
+	public String time_res;	
 }

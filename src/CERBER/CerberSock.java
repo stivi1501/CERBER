@@ -21,7 +21,9 @@ public void run()
 	socres.dest=zadanie.ip;
 	socres.n= Integer.parseInt(zadanie.nn);
 	socres.ok_no= SocketCheck.check(zadanie.ip,Integer.parseInt(zadanie.nn));
-	JdbcConect.jdbc_reqest_cerber_update2(zadanie.ip,zadanie.unix_start,"s");
+	socres.time_cmd=zadanie.time_cmd;
+	socres.time_res=zadanie.time_res;
+	JdbcConect.jdbc_reqest_cerber_update2(zadanie.getip(),zadanie.gettime_cmd(),"s");
 	jc.add_SockRes(socres);
 	jc.JdbcConect_sockresult(maks);;
 }	
