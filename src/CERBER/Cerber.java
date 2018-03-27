@@ -15,6 +15,10 @@ public class Cerber  {
         int maksp=JdbcConect.jdbc_count_dop(); //ile jest do zrobienia wszystkich z pingiem
         int makss=JdbcConect.jdbc_count_dos(); //ile jest do zrobienia wszystkich z socketem
         int maks=makss+maksp;
+        
+        System.out.println("Dozwolona ilosc pingow "+maksp);
+        System.out.println("Dozwolona ilosc socketow "+makss);
+        System.out.println("Dozwolona ilosc watkow "+maks);
 
         
         Runnable[] runners = new Runnable[maks];
@@ -31,11 +35,11 @@ public class Cerber  {
         		try {Thread.sleep(100);} catch (InterruptedException e) {e.printStackTrace();}
         		if (zad.task.equals("p")) 
         		 {
-        			runners[i] = new CerberPing(i,zad,maksp);
+        		 runners[i] = new CerberPing(i,zad,maksp);
         		 }
-        		else 
+            	else 
         		 {
-        			runners[i] = new CerberSock(i,zad,makss);
+        		   runners[i] = new CerberSock(i,zad,makss);
         		 };
         	};
         }       
@@ -47,7 +51,7 @@ public class Cerber  {
     {
     	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     	LocalDateTime now = LocalDateTime.now();
-    	System.out.println(dtf.format(now));
+    	//System.out.println(dtf.format(now));
     	return dtf.format(now);
 
     }  	

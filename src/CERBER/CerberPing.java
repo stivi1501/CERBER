@@ -23,6 +23,7 @@ public void run()
     pinres=GetPingRes();
     pinres.time_cmd=zadanie.gettime_cmd();
     pinres.time_res=zadanie.gettime_res();
+      
     
     jc.add_PingRes(pinres);
     jc.JdbcConect_pingresult(maks);
