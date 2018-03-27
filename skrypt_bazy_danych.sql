@@ -18,22 +18,22 @@ USE `cerber`;
 
 -- Zrzut struktury tabela cerber.cerber_gen_inc
 CREATE TABLE IF NOT EXISTS `cerber_gen_inc` (
-  `lp` int(11) DEFAULT NULL,
-  `lp_str` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `lp` int(11) DEFAULT NULL COMMENT 'numer porządkowy ',
+  `lp_str` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL COMMENT 'ostatni oktet adresu ip'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci COMMENT='Tabea dla geneeraatora zapytań w tabeli cerber_plan, Zawera ostatni oktet adresu ip.';
 
 -- Data exporting was unselected.
 -- Zrzut struktury tabela cerber.cerber_gen_ip
 CREATE TABLE IF NOT EXISTS `cerber_gen_ip` (
-  `ip` varchar(100) COLLATE utf8_polish_ci DEFAULT NULL,
-  `n` bigint(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `ip` varchar(100) COLLATE utf8_polish_ci DEFAULT NULL COMMENT 'ip celu',
+  `n` bigint(11) DEFAULT NULL COMMENT 'illoość powtorzeń ECHO REQUES dla pinga'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci COMMENT='Tabea dla geneeraatora zapytań w tabeli cerber_plan. Zawiera kompletny adres ip (4 oktety). Tabela powstaje na podstawie tabeli cerber_gen_inc i danych wprowadzanych w procedurze cerber_gen_proc_1';
 
 -- Data exporting was unselected.
 -- Zrzut struktury tabela cerber.cerber_gen_port
 CREATE TABLE IF NOT EXISTS `cerber_gen_port` (
   `port` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci COMMENT='Tabea dla geneeraatora zapytań w tabeli cerber_plan.  Zawiera porty które chcemy przeskanować dlaa grupy ip z tabeli cerber_gen_ip';
 
 -- Data exporting was unselected.
 -- Zrzut struktury procedura cerber.cerber_gen_proc1
