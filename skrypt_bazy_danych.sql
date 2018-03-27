@@ -105,7 +105,7 @@ AUTO_INCREMENT=1
 SET threads_active=(SELECT count(*) do_zrobienia FROM cerber_plan WHERE status=1 LIMIT 1);
 SET threads_limit=(SELECT threads FROM cerber_setings LIMIT 1)-threads_active;
 
-INSERT INTO cerber_plan_temp(ip,nn,status,unix_start,type,time_cmd)  SELECT ip,nn,status,unix_start,type,time_cmd FROM cerber_plan WHERE status=0 ORDER BY unix_start,type LIMIT threads_limit;
+INSERT INTO cerber_plan_temp(ip,nn,status,unix_start,type,time_cmd)  SELECT ip,nn,status,unix_start,type,time_cmd FROM cerber_plan WHERE status=0 AND time_cmd<now() ORDER BY unix_start,type LIMIT threads_limit;
 UPDATE cerber_plan_temp t1,cerber_plan t2 SET t2.status=1 WHERE t1.ip=t2.ip AND t1.unix_start=t2.unix_start AND t1.type=t2.type;
 
 UPDATE cerber_setings SET dop=(SELECT (CASE WHEN count(*) IS NULL THEN 0 ELSE count(*) END) dop FROM cerber_plan_temp WHERE type='p');
