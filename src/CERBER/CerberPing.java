@@ -19,7 +19,7 @@ public void run()
 {
 	zadanie=GetZadanie();
     PingExe(zadanie.ip,zadanie.nn);
-    jc.jdbc_reqest_cerber_update2(zadanie.getip(), zadanie.gettime_cmd(),zadanie.gettask());
+    jc.jdbc_reqest_cerber_update2(zadanie.getip(), zadanie.gettime_cmd(),zadanie.gettime_res(),zadanie.gettask());
     pinres=GetPingRes();
     pinres.time_cmd=zadanie.gettime_cmd();
     pinres.time_res=zadanie.gettime_res();

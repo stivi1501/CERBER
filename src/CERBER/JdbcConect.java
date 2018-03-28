@@ -13,11 +13,12 @@ import java.util.List;
 public class JdbcConect {
 	static List<PingRes> lista1 = new ArrayList<PingRes>(); //lista pusta
 	static List<SockRes> lista2 = new ArrayList<SockRes>(); //lista pusta
-
-	public static void jdbc_reqest_sock_insert(String ipp,int portt,int ok_noo) 
+/*
+	public static void jdbc_reqest_sock_insertc(String ipp,int portt,int ok_noo,String time_cmd) 
 	{
 		String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
-		String query = "INSERT INTO socket_results(ip,port,ok_no) SELECT '"+ipp+"',"+portt+","+ok_noo+"";         
+		String query = "INSERT INTO socket_results(ip,port,ok_no,time_cmd) SELECT '"+ipp+"',"+portt+","+ok_noo+",'"+time_cmd+"'";     
+		
 		Connection conn = null;           
 		try {
 		     conn = DriverManager.getConnection(polaczenieURL);
@@ -33,7 +34,7 @@ public class JdbcConect {
 			                         System.out.println("VendorError: "  + wyjatek.getErrorCode());
 			                        }
 	} 
-
+*/
 public static void JdbcConect_pingresult(int  maks)
 {
 	if (lista1.size()>(maks-1))
@@ -79,10 +80,10 @@ public static void jdbc_reqest_cerber_update1(String ip,String time_cmd,String t
 		                         System.out.println("VendorError: "  + wyjatek.getErrorCode());
 		                        }
 }  	
-public static void jdbc_reqest_cerber_update2(String ip,String time_cmd,String typee) 
+public static void jdbc_reqest_cerber_update2(String ip,String time_cmd,String time_res,String typee) 
 {
 	String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
-	String query = "update cerber_plan set status=2 where ip='"+ip+"' AND time_cmd='"+time_cmd+"' AND type='"+typee+"'";        
+	String query = "update cerber_plan set status=2,time_res='"+time_res+"' where ip='"+ip+"' AND time_cmd='"+time_cmd+"' AND type='"+typee+"'";        
 	Connection conn = null;           
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);
@@ -121,7 +122,9 @@ public static void jdbc_plan_cerber_ping(PingRes pr)
 public static void jdbc_plan_cerber_sock(SockRes pr) 
 {
 	String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
-	String query = "INSERT INTO socket_results(ip,port,ok_no,time_cmd,time_res) SELECT '"+pr.dest+"',"+pr.n+","+pr.ok_no+",'"+pr.time_cmd+"','"+pr.time_res+"'";         
+//	String query = "INSERT INTO socket_results(ip,port,ok_no,time_cmd,time_res) SELECT '"+pr.dest+"',"+pr.n+","+pr.ok_no+",'"+pr.time_cmd+"','"+pr.time_res+"'";         
+	String query = "CALL save_res_ping('"+pr.dest+"',"+pr.n+","+pr.ok_no+",'"+pr.time_cmd+"','"+pr.time_res+"')";         
+
 	Connection conn = null;           
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);
@@ -129,7 +132,6 @@ public static void jdbc_plan_cerber_sock(SockRes pr)
 	      Statement stmt = conn.createStatement();
 	      stmt.executeUpdate(query);
 	     conn.close();
-	    // System.out.println(pr.dest+":"+pr.n+">>"+pr.ok_no);
 	}
 	catch(ClassNotFoundException wyjatek) {System.out.println("Problem ze sterownikiem");}
 	catch(SQLException wyjatek) {
