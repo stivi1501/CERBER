@@ -32,7 +32,7 @@ public class Cerber  {
             zad.time_res =datetime_now() ;
         	if (zad.ip!="") 
         	{
-        		try {Thread.sleep(100);} catch (InterruptedException e) {e.printStackTrace();}
+        		try {Thread.sleep(10);} catch (InterruptedException e) {e.printStackTrace();}
         		if (zad.task.equals("p")) 
         		 {
         		 runners[i] = new CerberPing(i,zad,maksp);
@@ -45,6 +45,9 @@ public class Cerber  {
         }       
         for(int i=0; i<maks; i++) {threads[i] = new Thread(runners[i]);}
         for(int i=0; i<maks; i++) {threads[i].start();}
+        
+        System.out.println("--------------------------------------------");
+        System.out.println("Wszystkie watki utworzono ");
     }
 	
     public static String datetime_now() 
