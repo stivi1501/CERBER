@@ -63,7 +63,7 @@ public class PingCMD {
             erro	="1"; //"Request timed out" 
     	}
     	}
-    	 System.out.println("Wynik watku Ping dla "+ipdes+" Sent "+sent+" Receive "+receive+" Lost "+lost+" Unreachable"+unreachable+" min,max,ave "+minping+","+maxping+","+aveping);
+    	 System.out.println("Wynik watku Ping dla "+ipdes+" Sent "+sent+" Receive "+receive+" Lost "+lost+" Unreachable "+unreachable+" min,max,ave "+minping+","+maxping+","+aveping);
 	}
 
 	public String GetDest() 			   {if (dest!=null) {return dest;} else {return "puste";}};

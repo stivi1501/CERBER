@@ -103,7 +103,7 @@ public static void jdbc_plan_cerber_sock(SockRes pr)
 {
 	String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
 //	String query = "INSERT INTO socket_results(ip,port,ok_no,time_cmd,time_res) SELECT '"+pr.dest+"',"+pr.n+","+pr.ok_no+",'"+pr.time_cmd+"','"+pr.time_res+"'";         
-	String query = "CALL save_res_sock('"+pr.dest+"',"+pr.n+","+pr.ok_no+",'"+pr.time_cmd+"','"+pr.time_res+"')";         
+	String query = "CALL save_res_sock('"+pr.dest+"',"+pr.ok_no+",'"+pr.time_cmd+"','"+pr.time_res+"')";         
 
 	Connection conn = null;           
 	try {
@@ -148,7 +148,9 @@ public static PP jdbc_PPOnId(int ii) {
 		String r3 = "";
 		String r4 = "";		
 		String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
-		String query = "Select ip,nn,time_cmd,type FROM cerber_plan_temp where id="+ii+" limit 1";         
+		//String query = "Select ip,nn,time_cmd,type FROM cerber_plan_temp where id="+ii+" limit 1"; 
+		//Select ip,nn,time_cmd,type FROM cerber_plan_temp t1,cerber_plan_lp t2 where id=70-min_lp AND t1.lp=t2.lp limit 1
+		String query = "Select ip,nn,time_cmd,type FROM cerber_plan_temp t1,cerber_plan_lp t2 where id="+ii+" -min_lp AND t1.lp=t2.lp limit 1"; 
 		Connection conn = null;           
 		try {
 		     conn = DriverManager.getConnection(polaczenieURL);
