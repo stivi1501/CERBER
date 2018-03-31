@@ -150,7 +150,7 @@ public static PP jdbc_PPOnId(int ii) {
 		String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
 		//String query = "Select ip,nn,time_cmd,type FROM cerber_plan_temp where id="+ii+" limit 1"; 
 		//Select ip,nn,time_cmd,type FROM cerber_plan_temp t1,cerber_plan_lp t2 where id=70-min_lp AND t1.lp=t2.lp limit 1
-		String query = "Select ip,nn,time_cmd,type FROM cerber_plan_temp t1,cerber_plan_lp t2 where id="+ii+" -min_lp AND t1.lp=t2.lp limit 1"; 
+		String query = "Select ip,nn,time_cmd,type FROM cerber_plan_temp t1,cerber_plan_lp t2 where id="+ii+" -min_lp AND t1.lp=t2.lp  ORDER BY type desc,ip  limit 1"; 
 		Connection conn = null;           
 		try {
 		     conn = DriverManager.getConnection(polaczenieURL);
