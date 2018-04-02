@@ -23,13 +23,11 @@ public static void JdbcConect_pingresult(int  maks)
 
 public static void JdbcConect_sockresult(int  maks)
 {
-	//System.out.println("KONIEC : "+maks);
 	if (lista2.size()>(maks-1))
 	for(int i=0; i<lista2.size(); i++)
 	{
 		jdbc_plan_cerber_sock(lista2.get(i));
 	};
-	//if (lista2.size()>(maks-1)) {System.out.println("KONIEC");}; 
 }
 
 public static void add_PingRes(PingRes oo)
@@ -102,9 +100,18 @@ public static void jdbc_plan_cerber_ping(PingRes pr)
 public static void jdbc_plan_cerber_sock(SockRes pr) 
 {
 	String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
-//	String query = "INSERT INTO socket_results(ip,port,ok_no,time_cmd,time_res) SELECT '"+pr.dest+"',"+pr.n+","+pr.ok_no+",'"+pr.time_cmd+"','"+pr.time_res+"'";         
-	String query = "CALL save_res_sock('"+pr.dest+"',"+pr.ok_no+",'"+pr.time_cmd+"','"+pr.time_res+"')";         
-
+//	String query = "INSERT INTO socket_results(ip,port,ok_no,time_cmd,time_res) SELECT '"+pr.dest+"',"+pr.n+","+pr.ok_no+",'"+pr.time_cmd+"','"+pr.time_res+"'"; 
+	String query="";
+	if (pr.ok_no)
+	{
+	query = "CALL save_res_sock('"+pr.dest+"',"+pr.n+",1,'"+pr.time_cmd+"','"+pr.time_res+"')"; 
+	}
+	else
+	{
+	query = "CALL save_res_sock('"+pr.dest+"',"+pr.n+",0,'"+pr.time_cmd+"','"+pr.time_res+"')"; 
+	};
+	//System.out.println(query);
+	
 	Connection conn = null;           
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);
