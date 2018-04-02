@@ -16,42 +16,6 @@
 CREATE DATABASE IF NOT EXISTS `cerber` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_polish_ci */;
 USE `cerber`;
 
--- Zrzut struktury procedura cerber.aaa
-DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `aaa`()
-BEGIN
-DECLARE threads_limit INT;
-DECLARE threads_active INT;
-DROP TABLE cerber_plan_temp;
-CREATE TABLE `cerber_plan_temp` (
-	`ip` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_polish_ci',
-	`nn` INT(11) NULL DEFAULT NULL,
-	`status` INT(11) NULL DEFAULT '0',
-	`unix_start` BIGINT(20) NULL DEFAULT NULL,
-	`type` VARCHAR(1) NULL DEFAULT NULL COLLATE 'utf8_polish_ci',
-	`time_cmd` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_polish_ci',
-	`id` INT(11) NOT NULL AUTO_INCREMENT,
-	PRIMARY KEY (`id`)
-)
-COLLATE='utf8_polish_ci'
-ENGINE=InnoDB
-ROW_FORMAT=COMPACT
-AUTO_INCREMENT=1
-;
-
-
-SET threads_active=(SELECT count(*) do_zrobienia FROM cerber_plan WHERE status=1 LIMIT 1);
-SET threads_limit=(SELECT threads FROM cerber_setings LIMIT 1)-threads_active;
-
-INSERT INTO cerber_plan_temp(ip,nn,status,unix_start,type,time_cmd)  SELECT ip,nn,status,unix_start,type,time_cmd FROM cerber_plan WHERE status=0 AND time_cmd<now() ORDER BY time_cmd ASC,type LIMIT threads_limit;
-UPDATE cerber_plan_temp t1,cerber_plan t2 SET t2.status=1 WHERE t1.ip=t2.ip AND t1.unix_start=t2.unix_start AND t1.type=t2.type;
-
-UPDATE cerber_setings SET dop=(SELECT (CASE WHEN count(*) IS NULL THEN 0 ELSE count(*) END) dop FROM cerber_plan_temp WHERE type='p');
-UPDATE cerber_setings SET dos=(SELECT (CASE WHEN count(*) IS NULL THEN 0 ELSE count(*) END) dos FROM cerber_plan_temp WHERE type='s');
-
-END//
-DELIMITER ;
-
 -- Zrzut struktury tabela cerber.cerber_gen_inc
 CREATE TABLE IF NOT EXISTS `cerber_gen_inc` (
   `lp` int(11) DEFAULT NULL COMMENT 'numer porządkowy ',
@@ -203,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `cerber_plan_temp` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `lp` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Zrzut struktury tabela cerber.cerber_setings
@@ -277,6 +241,7 @@ DELIMITER ;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `save_res_sock`(
 	IN `ddest` VARCHAR(50),
+	IN `pport` INT,
 	IN `ook_no` INT,
 	IN `ttime_cmd` VARCHAR(50),
 	IN `ttime_res` VARCHAR(50)
@@ -284,9 +249,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `save_res_sock`(
 
 
 
+
+
 )
 BEGIN
-UPDATE cerber_plan SET ok_no=ook_no,time_res=ttime_res WHERE time_cmd=ttime_cmd AND ddest=ip AND type='s';
+UPDATE cerber_plan SET ok_no=ook_no,time_res=ttime_res WHERE time_cmd=ttime_cmd AND ddest=ip AND type='s' AND nn=pport;
 END//
 DELIMITER ;
 
