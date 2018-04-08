@@ -190,7 +190,7 @@ public static int jdbc_count_dop() {
 	int ResultIp;
 	String r1 = "";	
 	String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
-	String query = "Select dop FROM cerber_setings";         
+	String query = "Select dop FROM cerber_settings";         
 	Connection conn = null;           
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);
@@ -217,7 +217,7 @@ public static int jdbc_count_dos() {
 	int ResultIp;
 	String r1 = "";	
 	String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
-	String query = "Select dos FROM cerber_setings";         
+	String query = "Select dos FROM cerber_settings";         
 	Connection conn = null;           
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);
