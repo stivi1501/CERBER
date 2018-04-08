@@ -22,3 +22,4 @@ W tym celu można użyć wbudowanego w system "Harmonogramu zadań" lub pętli "
 
 1.BAZA DANYCH
 Baza danych aplkacjii "CERBER" składa się z 4 tabel (plus 3 tabele generatora zapytań) i 4 procedur bazodanowych (plus 2 procedury generatora zapytań). Główną tabelą bazy danych jest tabela "cerber_plan". To do tej tabeli są zlecane zapytania i do ej tabeli są zapisywane wyniki.
+<img src="smiley.gif" alt="Smiley face" width="42" height="42">
