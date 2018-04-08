@@ -22,4 +22,4 @@ Baza danych aplkacjii "CERBER" składa się z 4 tabel (plus 3 tabele generatora 
 
 Aplikacja powstała ze względu na potrzebę monitorowania poprawnego działania urzadzeń sieciwych. Sterowanie odbywa się poprzez 2 tabele: "cerber_setings","cerber_plan". W tabeli "cerber_setings" w kolumie "cerber_setings.threads" określamy maksymalną ilość wątków widzianych z poziomu systemu ( aplikacja dopuszcza istnienie wielu wirtualnych maszyn JAVA w fizycznym systemie komputerowym ). W kolumnnie "cerber_setings.timeout_res" określamy maksymalny czas oczekiania na wynik po rozpoczęciu wykonywania polecenia ( kolumna "cerber_setings.status" po upływie tego czasu w sekundach od czasu "cerber_setings.time_res" jest zerowana).  Aplikacja zakłada cykliczne uruchamianie skryptu "jar_exe.bat".
 W tym celu można użyć wbudowanego w system "Harmonogramu zadań" lub pętli "loop.bat" z projektu (sprawdz zawartość pliku pod kontem poprawnści katalogów).
-<img src="https://www.w3schools.com/tags/smiley.gif" alt="Smiley face" width="42" height="42">
+<img src="https://github.com/stivi1501/CERBER/blob/master/ping.PNG" alt="ping" height="100">
