@@ -32,6 +32,8 @@ Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urz�
 </BR><B>Tabela cerber_plan_lp</B></BR>
 <p align="justify">Tabela <B>"cerber_plan_lp"</B> jest tabelą pomocniczą, uaktualnianą przez <B>cerber_plan_proc</B>. Tabela zawiera idenryfikator aktualnie uruchanianej maszyny JAVA w <B>"cerber_plan_lp.lp"</B> oraz minimalną wartość kolumny z inkrementacją w <B>"cerber_plan_lp.min_lp"</B></p>
 
+</BR><B>Proedura bazodanowa cerber_plan_proc</B></BR>
+<p align="justify">Procedura czuwająca nad właśiwą ilością wątków (aplikacja nie może przekraczać <B>"cerber_setings.threads"</B>)</p>
 
 
 
