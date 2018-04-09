@@ -1,4 +1,4 @@
-# PROEKT CERBER 
+# PROJEKT CERBER 
 Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urządzeń w sieci(projekt nie zakłada wytworzenia GUI)
 
 Środowisko uruchomieniowe:</BR>
@@ -23,4 +23,4 @@ Główną tabelą bazy danych jest tabela <B>"cerber_plan"</B>. To do tej tabeli
 <img src="https://github.com/stivi1501/CERBER/blob/master/ping.PNG" alt="ping" height="300">
 
 </BR></BR><B>Tabela cerber_settings</B></BR>
-W tabeli <B>"cerber_setings"</B> w kolumie <B>"cerber_setings.threads"</B> określamy maksymalną ilość wątków we wszystkich wirtualnych maszynach JAVA łącznie. W kolumnnie <B>"cerber_setings.timeout_res"</B> określamy maksymalny czas oczekiania na wynik określony w <B>"cerber_plan.time_res"</B> (przy <B>"cerber_plan.status"</B> równej 1).
+W tabeli <B>"cerber_setings"</B> w kolumie <B>"cerber_setings.threads"</B> określamy maksymalną ilość wątków we wszystkich wirtualnych maszynach JAVA łącznie. W kolumnnie <B>"cerber_setings.timeout_res"</B> określamy maksymalny czas oczekiania na wynik określony w <B>"cerber_plan.time_res"</B> (przy <B>"cerber_plan.status"</B> równym 1).
