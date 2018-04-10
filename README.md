@@ -35,11 +35,11 @@ Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urz�
 </BR><B>Proedura bazodanowa cerber_plan_proc</B></BR>
 <p align="justify">Jest to główna procedura aplikacji, decydująca o rozpoczęciu wątków (badania pleeie PING lub sprawdzanie zy jest otwarty SOCKET) i kontroluje ilość uruchomionych wątków dla wszystkich wirtualnych maszyn JAVA (aplikacja nie może przekraczać "cerber_setings.threads"). W ciele proedury zadeklarowane i używane są 4 zmiene: <B>threads_limit</B> (maksymalna ilość wątków),<B>threads_active</B> (ilość wątków atywnych),<B>id_min_v</B> (minimalna wartość "cerber_plan_temp.id" dla ostatniego wątku określonego w <B>"cerber_plan_lp.lp"</B>),<B>timeout_ress</B> (maksymalny czas oczekiwania na wynik po uruchomieniu komendy-badania)
 </BR>
-Działanie:
-KROK 1-4 :Deklaracja zmiennych w proedurze :threads_limit, threads_active,id_min_v,
-KROK 5   :Przypisane zmiennej <B>threads_limit</B> wartości z koluny "cerber_setings.threads",
-KROK 6   :Restart komend-badań w któych okres oczekiwannia określony na wynik przekroczył wartość <B>timeout_ress</B> (zerowanie "cerber_plan.status"),
-KROK 7   :
+Działanie:</BR>
+KROK 1-4 :Deklaracja zmiennych w proedurze :threads_limit, threads_active,id_min_v,</BR>
+KROK 5   :Przypisane zmiennej <B>threads_limit</B> wartości z koluny "cerber_setings.threads",</BR>
+KROK 6   :Restart komend-badań w któych okres oczekiwannia określony na wynik przekroczył wartość <B>timeout_ress</B> (zerowanie "cerber_plan.status"),</BR>
+KROK 7   :</BR>
 </BR>
 </p>
 
