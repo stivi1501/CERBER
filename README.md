@@ -33,7 +33,7 @@ Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urz�
 <p align="justify">Tabela <B>"cerber_plan_lp"</B> jest tabelą pomocniczą, uaktualnianą przez <B>cerber_plan_proc</B>. Tabela zawiera idenryfikator aktualnie uruchanianej maszyny JAVA w <B>"cerber_plan_lp.lp"</B> oraz minimalną wartość kolumny z inkrementacją w <B>"cerber_plan_lp.min_lp"</B></p>
 
 </BR><B>Proedura bazodanowa cerber_plan_proc</B></BR>
-<p align="justify">Procedura czuwająca nad właśiwą ilością wątków (aplikacja nie może przekraczać <B>"cerber_setings.threads"</B>)</p>
+<p align="justify">Jest to główna procedura aplikacji, decydująca o rozpoczęciu wątków (badania pleeie PING lub sprawdzanie zy jest otwarty SOCKET) i kontrolująa ilość uruchomionych wątków dla wszystkich wirtualnych maszyn JAVA (aplikacja nie może przekraczać <B>"cerber_setings.threads"</B>). W ciele proedury zadeklarowane i używane są 4 zmiene: <B>threads_limit</B> (maksymalna ilość wątków),<B>threads_active</B> (ilość wątków atywnych),<B>id_min_v</B> (minimalna wartość <B>"cerber_plan_temp.id"</B> dla ostatniego wątku określonego w <B>"cerber_plan_lp.lp"</B>),<B>timeout_ress</B> (maksymalny czas oczekiwania na wynik po uruchomieniu komendy-badania)</p>
 
 
 
