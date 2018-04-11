@@ -43,7 +43,8 @@ KROK 7:Inkrementacja "cerber_plan_lp.lp" (identyfikator wirtualnej maszyny JAVA)
 KROK 8-9:Zerowanie kolumn "cerber_plan.dop","cerber_plan.dos" jeśli są ujemne,</BR>
 KROK 10:DROP tabeli "cerber_plan_temp",</BR>
 KROK 11:Utworzenie tabeli "cerber_plan_temp" z kolumną "cerber_plan_temp.id" autoinkrementującą się,</BR>
-KROK 12:Przypisanie zmiennej cerber_plan_temp policzonej ilości wierzy z kolumną "cerber_plan.status" równą 1,</BR>
+KROK 12:Przypisanie zmiennej <B>"cerber_plan_temp"</B> policzonej ilości wierszy z kolumną "cerber_plan.status" równą 1 (wątki aktywne),</BR>
+KROK 13:Przypisanie zmiennej <B>"cerber_plan_temp"</B> policzonej ilości wierszy z kolumną "cerber_plan.status" równą 1 (wątki aktywne),</BR>
 KROK 10:DROP tabeli cerber_plan_temp,</BR>
 KROK 10:DROP tabeli crber_plan_temp,</BR>
 KROK 10:DROP tabeli cerber_plan_temp,</BR>
