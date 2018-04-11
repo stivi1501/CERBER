@@ -41,6 +41,11 @@ KROK 5:Przypisane zmiennej <B>threads_limit</B> wartości z koluny "cerber_setin
 KROK 6:Restart komend-badań w któych okres oczekiwannia określony na wynik przekroczył wartość <B>timeout_ress</B> (zerowanie "cerber_plan.status"),</BR>
 KROK 7:Inkrementacja "cerber_plan_lp.lp" (identyfikator wirtualnej maszyny JAVA),</BR>
 KROK 8-9:Zerowanie kolumn "cerber_plan.dop","cerber_plan.dos" jeśli są ujemne,</BR>
+KROK 10:DROP tabeli "cerber_plan_temp",</BR>
+KROK 11:Utworzenie tabeli "cerber_plan_temp" z kolumną "cerber_plan_temp.id" autoinkrementującą się,</BR>
+KROK 12:Przypisanie zmiennej cerber_plan_temp policzonej ilości wierzy z kolumną "cerber_plan.status" równą 1,</BR>
+KROK 10:DROP tabeli cerber_plan_temp,</BR>
+KROK 10:DROP tabeli crber_plan_temp,</BR>
 KROK 10:DROP tabeli cerber_plan_temp,</BR>
 
 </BR>
