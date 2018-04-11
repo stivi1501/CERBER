@@ -37,14 +37,14 @@ Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urz�
 </BR>
 Działanie:</BR>
 KROK 1-4:Deklaracja zmiennych w proedurze :threads_limit, threads_active,id_min_v,</BR>
-KROK 5:Przypisane zmiennej <B>threads_limit</B> wartości z koluny "cerber_setings.threads",</BR>
+KROK 5:Przypisane zmiennej <B>timeout_ress</B> wartości z koluny "cerber_setings.timeout_res",</BR>
 KROK 6:Restart komend-badań w któych okres oczekiwannia określony na wynik przekroczył wartość <B>timeout_ress</B> (zerowanie "cerber_plan.status"),</BR>
 KROK 7:Inkrementacja "cerber_plan_lp.lp" (identyfikator wirtualnej maszyny JAVA),</BR>
 KROK 8-9:Zerowanie kolumn "cerber_plan.dop","cerber_plan.dos" jeśli są ujemne,</BR>
 KROK 10:DROP tabeli "cerber_plan_temp",</BR>
 KROK 11:Utworzenie tabeli "cerber_plan_temp" z kolumną "cerber_plan_temp.id" autoinkrementującą się,</BR>
 KROK 12:Przypisanie zmiennej <B>"cerber_plan_temp"</B> policzonej ilości wierszy z kolumną "cerber_plan.status" równą 1 (wątki aktywne),</BR>
-KROK 13:Przypisanie zmiennej <B>"cerber_plan_temp"</B> policzonej ilości wierszy z kolumną "cerber_plan.status" równą 1 (wątki aktywne),</BR>
+KROK 13:Przypisanie zmiennej <B>"threads_limit"</B> wartości z kolumny "cerber_settings.threads" minus wartość zmiennej <B>timeout_ress</B> (z KROK'u 5),</BR>
 KROK 10:DROP tabeli cerber_plan_temp,</BR>
 KROK 10:DROP tabeli crber_plan_temp,</BR>
 KROK 10:DROP tabeli cerber_plan_temp,</BR>
