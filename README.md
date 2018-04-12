@@ -56,8 +56,8 @@ KROK 20:Aktualizacja  kolumny "cerber_settings.dos" do wartości równej policzo
 
 <B>Proedura bazodanowa save_res_ping</B></BR>
 Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "p"</BR>
-<B>Proedura bazodanowa save_res_ping</B></BR>
-Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "p"</BR>
+<B>Proedura bazodanowa save_res_sock</B></BR>
+Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "s"</BR>
 
 </p>
 
