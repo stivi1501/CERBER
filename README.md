@@ -53,6 +53,10 @@ KROK 18:Aktualizacja  kolumny "cerber_plan_lp.lp" do warośc zmiennej <B>id_min_
 KROK 19:Aktualizacja  kolumny "cerber_settings.dop" do wartości równej policzonej ilości wierszy z kolumną "cerber_plan_temp.type" równą "p",</BR>
 KROK 20:Aktualizacja  kolumny "cerber_settings.dos" do wartości równej policzonej ilości wierszy z kolumną "cerber_plan_temp.type" równą "s",</BR>
 </BR>
+
+</BR><B>Proedura bazodanowa save_res_ping</B></BR>
+Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "p"</BR>
+
 </p>
 
 
