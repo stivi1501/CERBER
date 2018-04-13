@@ -60,8 +60,10 @@ KROK 20:Aktualizacja  kolumny "cerber_settings.dos" do wartości równej policzo
 Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "p"</BR>
 </BR><B>Procedura bazodanowa save_res_sock</B></BR>
 Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "s"</BR>
-
 </p>
 
+<B>4.JAVA - KLASY,OBIEKTY</B></BR>
+</BR><B>Tabela cerber_plan</B></BR>
+<p align="justify"></p>
 
 
