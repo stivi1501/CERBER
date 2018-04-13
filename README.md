@@ -1,4 +1,5 @@
 # PROJEKT CERBER 
+</BR><B>0.WSTĘP</B></BR>
 Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urządzeń w sieci(projekt nie zakłada wytworzenia GUI). Sterowanie applikacją ma się odbywać poprzez wpisy bezpośrednio na bazie danych.</BR>
 
 Środowisko uruchomieniowe:</BR>
