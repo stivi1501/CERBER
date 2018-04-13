@@ -1,5 +1,5 @@
 # PROJEKT CERBER 
-</BR><B>1. CEL UTWORZENIA APLIKACJI</B></BR></BR>
+</BR><B>1.CEL WYTWORZENIA APLIKACJI</B></BR></BR>
 Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urządzeń w sieci(projekt nie zakłada wytworzenia GUI). Sterowanie applikacją ma się odbywać poprzez wpisy bezpośrednio na bazie danych.</BR>
 
 </BR><B>2.ŚRODOWISKO PROJEKTOWE I ŚRODOWISKO URUCHOMIENIOWE</B></BR></BR>
@@ -17,7 +17,7 @@ Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urz�
 - konektor JAVA-MariaDB(MySQL) np. mysql-connector-java-5.1.45,</BR>
 - klient baz danych np. HeidiSQL,</BR>
 - Eclipse.</BR>
-
+</BR>
 <B>3.BAZA DANYCH</B></BR>
 <p align="justify">Baza danych aplkacjii "CERBER" składa się z 4 tabel (plus 3 tabele generatora zapytań) i 4 procedur bazodanowych (plus 2 procedury generatora zapytań).</p>
 </BR><B>Tabela cerber_plan</B></BR>
