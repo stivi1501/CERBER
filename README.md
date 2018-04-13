@@ -1,6 +1,8 @@
 # PROJEKT CERBER 
+</BR><B>1.CEL WYTWORZENIA APLIKACJI</B></BR></BR>
 Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urządzeń w sieci(projekt nie zakłada wytworzenia GUI). Sterowanie applikacją ma się odbywać poprzez wpisy bezpośrednio na bazie danych.</BR>
 
+</BR><B>2.ŚRODOWISKO PROJEKTOWE I ŚRODOWISKO URUCHOMIENIOWE</B></BR></BR>
 Środowisko uruchomieniowe:</BR>
 - Microsoft Windows 10 (z odblokowaną komendą ping),</BR>
 - Java 1.8,</BR>
@@ -15,10 +17,10 @@ Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urz�
 - konektor JAVA-MariaDB(MySQL) np. mysql-connector-java-5.1.45,</BR>
 - klient baz danych np. HeidiSQL,</BR>
 - Eclipse.</BR>
-
-<B>1.BAZA DANYCH</B></BR>
+</BR>
+<B>3.BAZA DANYCH</B></BR>
 <p align="justify">Baza danych aplkacjii "CERBER" składa się z 4 tabel (plus 3 tabele generatora zapytań) i 4 procedur bazodanowych (plus 2 procedury generatora zapytań).</p>
-</BR></BR><B>Tabela cerber_plan</B></BR>
+</BR><B>Tabela cerber_plan</B></BR>
 <p align="justify">Główną tabelą bazy danych jest tabela <B>"cerber_plan"</B>. To do tej tabeli są zlecane zapytania od użytkownika i do tej tabeli aplikacja zapisuje wyniki. W tabeli <B>"cerber_plan"</B> użytkownik określa "ip" badanego urządzenia w kolumnie <B>"cerber_plan.ip"</B>, typ badania w kolumnie <B>"cerber_plan.type"</B> (wartość "p" jeśli chcemy badać poleceniem PING,"s" sprawdzanie otwartości SOCKET'a w urządzeniu docelowym), szczegóły badania określamy w kolumnie <B>"cerber_plan.nn"</B> (w przypadku badania poleceniem PING określamy ilość pakietów wysłanych typu "ICMP Echo Request", w przypadku badania otawartości SOCKET'ów określamy numer badanego SOCKET'a). W kolumnie <B>"cerber_plan.status"</B> należy wpisać "0" ("0" oczekiwanie na uruchomienie,"1" w trakcie badania,"2" badanie zakończone). W kolumnie <B>"cerber_plan.time_cmd"</B> definiujemy najmłodszy czas aktywacji badania. W kolumnie <B>"cerber_plan.time_res"</B> zaznaczamy czas kolejnego etapu badania (dla <B>"cerber_plan.status"</B> równej 1 jest to czas rozpoczęcia badania, dla <B>"cerber_plan.status"</B> równej 2 jestt to czas otrzymmania wyników). Wyniki są zwracane w kolumnach <B>"cerber_plan.unreachable"</B>, <B>"cerber_plan.lost"</B>, <B>"cerber_plan.receive"</B>, <B>"cerber_plan.sent"</B>, <B>"cerber_plan.aveping"</B>, <B>"cerber_plan.maxping"</B>, <B>"cerber_plan.minping"</B> w przypadku testowania windowsowym poleceniem "PING" (kolumna <B>"cerber_plan.erro"</B> jest uzupełniana na podstawie eentualnego błędu w JAV'ie). Wynik testowania otwartości SOCKET'a jest uzupełniany w kolumnie <B>"cerber_plan.ok_no"</B> (0 SOCKET zamknięty, 1 SOOCKET otwarty).</BR></p>
 <img src="https://github.com/stivi1501/CERBER/blob/master/ping.PNG" alt="ping" height="300">
 
@@ -32,7 +34,7 @@ Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urz�
 </BR><B>Tabela cerber_plan_lp</B></BR>
 <p align="justify">Tabela <B>"cerber_plan_lp"</B> jest tabelą pomocniczą, uaktualnianą przez <B>cerber_plan_proc</B>. Tabela zawiera idenryfikator aktualnie uruchanianej maszyny JAVA w <B>"cerber_plan_lp.lp"</B> oraz minimalną wartość kolumny z inkrementacją w <B>"cerber_plan_lp.min_lp"</B></p>
 
-</BR><B>Proedura bazodanowa cerber_plan_proc</B></BR>
+</BR><B>Procedura bazodanowa cerber_plan_proc</B></BR>
 <p align="justify">Jest to główna procedura aplikacji, decydująca o rozpoczęciu wątków (badania pleeie PING lub sprawdzanie zy jest otwarty SOCKET) i kontroluje ilość uruchomionych wątków dla wszystkich wirtualnych maszyn JAVA (aplikacja nie może przekraczać "cerber_setings.threads"). W ciele proedury zadeklarowane i używane są 4 zmiene: <B>threads_limit</B> (maksymalna ilość wątków),<B>threads_active</B> (ilość wątków atywnych),<B>id_min_v</B> (minimalna wartość "cerber_plan_temp.id" dla ostatniego wątku określonego w <B>"cerber_plan_lp.lp"</B>),<B>timeout_ress</B> (maksymalny czas oczekiwania na wynik po uruchomieniu komendy-badania)
 </BR>
 Działanie:</BR>
@@ -53,7 +55,16 @@ KROK 18:Aktualizacja  kolumny "cerber_plan_lp.lp" do warośc zmiennej <B>id_min_
 KROK 19:Aktualizacja  kolumny "cerber_settings.dop" do wartości równej policzonej ilości wierszy z kolumną "cerber_plan_temp.type" równą "p",</BR>
 KROK 20:Aktualizacja  kolumny "cerber_settings.dos" do wartości równej policzonej ilości wierszy z kolumną "cerber_plan_temp.type" równą "s",</BR>
 </BR>
+
+<B>Procedura bazodanowa save_res_ping</B></BR>
+Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "p"</BR>
+</BR><B>Procedura bazodanowa save_res_sock</B></BR>
+Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "s"</BR>
 </p>
 
+<B>4.JAVA - KLASY,OBIEKTY</B></BR>
+<img src="https://github.com/stivi1501/CERBER/blob/master/ping.PNG" alt="ping" height="300">
+</BR><B>Tabela cerber_plan</B></BR>
+<p align="justify"></p>
 
 
