@@ -63,6 +63,7 @@ Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania polecen
 </p>
 
 <B>4.JAVA - KLASY,OBIEKTY</B></BR>
+<img src="https://github.com/stivi1501/CERBER/blob/master/ping.PNG" alt="ping" height="300">
 </BR><B>Tabela cerber_plan</B></BR>
 <p align="justify"></p>
 
