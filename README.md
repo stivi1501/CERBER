@@ -33,7 +33,7 @@ Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urz�
 </BR><B>Tabela cerber_plan_lp</B></BR>
 <p align="justify">Tabela <B>"cerber_plan_lp"</B> jest tabelą pomocniczą, uaktualnianą przez <B>cerber_plan_proc</B>. Tabela zawiera idenryfikator aktualnie uruchanianej maszyny JAVA w <B>"cerber_plan_lp.lp"</B> oraz minimalną wartość kolumny z inkrementacją w <B>"cerber_plan_lp.min_lp"</B></p>
 
-</BR><B>Proedura bazodanowa cerber_plan_proc</B></BR>
+</BR><B>Procedura bazodanowa cerber_plan_proc</B></BR>
 <p align="justify">Jest to główna procedura aplikacji, decydująca o rozpoczęciu wątków (badania pleeie PING lub sprawdzanie zy jest otwarty SOCKET) i kontroluje ilość uruchomionych wątków dla wszystkich wirtualnych maszyn JAVA (aplikacja nie może przekraczać "cerber_setings.threads"). W ciele proedury zadeklarowane i używane są 4 zmiene: <B>threads_limit</B> (maksymalna ilość wątków),<B>threads_active</B> (ilość wątków atywnych),<B>id_min_v</B> (minimalna wartość "cerber_plan_temp.id" dla ostatniego wątku określonego w <B>"cerber_plan_lp.lp"</B>),<B>timeout_ress</B> (maksymalny czas oczekiwania na wynik po uruchomieniu komendy-badania)
 </BR>
 Działanie:</BR>
@@ -55,9 +55,9 @@ KROK 19:Aktualizacja  kolumny "cerber_settings.dop" do wartości równej policzo
 KROK 20:Aktualizacja  kolumny "cerber_settings.dos" do wartości równej policzonej ilości wierszy z kolumną "cerber_plan_temp.type" równą "s",</BR>
 </BR>
 
-<B>Proedura bazodanowa save_res_ping</B></BR>
+<B>Procedura bazodanowa save_res_ping</B></BR>
 Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "p"</BR>
-</BR><B>Proedura bazodanowa save_res_sock</B></BR>
+</BR><B>Procedura bazodanowa save_res_sock</B></BR>
 Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "s"</BR>
 
 </p>
