@@ -10,7 +10,7 @@ Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urz�
 - konektor JAVA-MariaDB(MySQL) np. mysql-connector-java-5.1.45,</BR>
 - klient baz danych np. HeidiSL.</BR>
 
-Środowisko programistyczne:</BR>
+Środowisko projektowe:</BR>
 - Microsoft Windows 10 (z odblokowaną komendą ping),</BR>
 - Java 1.8,</BR>
 - Xampp (wykrzystywana jedynie baza MariaDB <klon MySQL>),</BR>
@@ -63,7 +63,7 @@ Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania polecen
 </p>
 
 <B>4.JAVA - KLASY,OBIEKTY</B></BR>
-<img src="https://github.com/stivi1501/CERBER/blob/master/objectaid.PNG" width="900">
+<img src="https://github.com/stivi1501/CERBER/blob/master/objectaid.PNG" width="1000">
 </BR><B>Tabela cerber_plan</B></BR>
 <p align="justify"></p>
 
