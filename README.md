@@ -71,8 +71,19 @@ Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania polecen
 </BR><B>Klasa PingCMD</B></BR>
 <p align="justify">Jest to klasa obrabiająca windowsowe plecenie PING</p>
 
-</BR><B>Klasa Socket</B></BR>
+</BR><B>Klasa SocketCheck</B></BR>
 <p align="justify">Jest to klasa sprawdzająca otwarcie SOCKET'a</p>
+
+</BR><B>Klasa CerberPing</B></BR>
+<p align="justify">Jest to specjalizacja klasy PingCMD </p>
+
+</BR><B>Klasa CerberSock</B></BR>
+<p align="justify">Jest to specjalizacja klasy SocketCheck</p>
+
+</BR><B>Klasa CerberSock</B></BR>
+<p align="justify">Jest to specjalizacja klasy SocketCheck</p>
+
+
 
 
 
