@@ -83,6 +83,22 @@ Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania polecen
 </BR><B>Klasa CerberSock</B></BR>
 <p align="justify">Jest to specjalizacja klasy SocketCheck</p>
 
+</BR><B>Klasa CerberSock</B></BR>
+<p align="justify">Jest to specjalizacja klasy SocketCheck</p>
+
+</BR><B>Klasa JdbcConnect</B></BR>
+<p align="justify">Jest to klasa  pośredniicząca w wymianie danych z bazą dnych</p>
+
+</BR><B>Klasa PP</B></BR>
+<p align="justify">Jest to klasa  kontener danych</p>
+
+</BR><B>Klasa PingRes</B></BR>
+<p align="justify">Jest to klasa  kontener danych</p>
+
+
+</BR><B>Klasa SockRes</B></BR>
+<p align="justify">Jest to klasa  kontener danych</p>
+
 
 
 
