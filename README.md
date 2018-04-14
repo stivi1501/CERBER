@@ -69,10 +69,10 @@ Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania polecen
 <p align="justify">Jest to główa klasa aplikacji psiadająca metodę main(). Metoda ain uruchamiia przy pomocy klasy <B>"xxx"</B> procedurę bazodanową cerber_plan_proc oraz wukkonuje polecenia zlecone w tabeli "cerber_plan_temp" (uruchamia w wątkach klasy <B>"CerberPing"</B> lub <B>"CerberSock"</B>)</p>
 
 </BR><B>Klasa PingCMD</B></BR>
-<p align="justify">Jest to klasa obrabiająca windowsowe plecenie PING w wątku</p>
+<p align="justify">Jest to klasa obrabiająca windowsowe plecenie PING</p>
 
-</BR><B>Klasa PingSock</B></BR>
-<p align="justify">Jest to klasa sprawdzająca otwarcie SOCKET'a wątku</p>
+</BR><B>Klasa Socket</B></BR>
+<p align="justify">Jest to klasa sprawdzająca otwarcie SOCKET'a</p>
 
 
 
