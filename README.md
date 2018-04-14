@@ -64,7 +64,14 @@ Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania polecen
 
 <B>4.JAVA - KLASY,OBIEKTY</B></BR>
 <img src="https://github.com/stivi1501/CERBER/blob/master/objectaid.PNG" width="1000">
-</BR><B>Tabela cerber_plan</B></BR>
-<p align="justify"></p>
+
+</BR><B>Klasa Cerber</B></BR>
+<p align="justify">Jest to główa klasa aplikacji psiadająca metodę main()</p>
+</BR></BR>
+
+</BR><B>Klasa PingCMD</B></BR>
+<p align="justify">Jest to klasa obrabiająca indowsowe plecenie PING</p>
+</BR></BR>
+
 
 
