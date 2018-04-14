@@ -67,11 +67,11 @@ Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania polecen
 
 </BR><B>Klasa Cerber</B></BR>
 <p align="justify">Jest to główa klasa aplikacji psiadająca metodę main()</p>
-</BR></BR>
+</BR>
 
 </BR><B>Klasa PingCMD</B></BR>
 <p align="justify">Jest to klasa obrabiająca indowsowe plecenie PING</p>
-</BR></BR>
+</BR>
 
 
 
