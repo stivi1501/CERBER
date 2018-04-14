@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class JdbcConect {
+public class JdbcConnect {
 	static List<PingRes> lista1 = new ArrayList<PingRes>(); //lista pusta
 	static List<SockRes> lista2 = new ArrayList<SockRes>(); //lista pusta
 

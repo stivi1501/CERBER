@@ -5,7 +5,7 @@ public class CerberPing extends PingCMD  implements Runnable{
 	int id;
 	int maks;
 	PingRes pinres;
-	JdbcConect jc;
+	JdbcConnect jc;
 	String time_cmd;
 	
     public CerberPing(int id,PP zz,int maks) 

@@ -10,10 +10,10 @@ public class Cerber  {
     
     public static void main(String[] args) {
   
-         JdbcConect.jdbc_plan_cerber_proc();    
+         JdbcConnect.jdbc_plan_cerber_proc();    
          
-        int maksp=JdbcConect.jdbc_count_dop(); //ile jest do zrobienia wszystkich z pingiem
-        int makss=JdbcConect.jdbc_count_dos(); //ile jest do zrobienia wszystkich z socketem
+        int maksp=JdbcConnect.jdbc_count_dop(); //ile jest do zrobienia wszystkich z pingiem
+        int makss=JdbcConnect.jdbc_count_dos(); //ile jest do zrobienia wszystkich z socketem
         int maks=makss+maksp;
         
         System.out.println("Dozwolona ilosc pingow "+maksp);
@@ -28,7 +28,7 @@ public class Cerber  {
 
         for(int i=0; i<=maks; i++) 
          {
-            zad=JdbcConect.jdbc_PPOnId(i+1);
+            zad=JdbcConnect.jdbc_PPOnId(i+1);
             zad.time_res =datetime_now() ;
         	if (zad.ip!="") 
         	{
