@@ -5,7 +5,6 @@ public class CerberPing extends PingCMD  implements Runnable{
 	int id;
 	int maks;
 	PingRes pinres;
-	JdbcConnect jc;
 	String time_cmd;
 	
     public CerberPing(int id,PP zz,int maks) 
@@ -19,14 +18,14 @@ public void run()
 {
 	zadanie=GetZadanie();
     PingExe(zadanie.ip,zadanie.nn);
-    jc.jdbc_reqest_cerber_update2(zadanie.getip(), zadanie.gettime_cmd(),zadanie.gettime_res(),zadanie.gettask());
+    JdbcConnect.jdbc_reqest_cerber_update2(zadanie.getip(), zadanie.gettime_cmd(),zadanie.gettime_res(),zadanie.gettask(),zadanie.getnn());
     pinres=GetPingRes();
     pinres.time_cmd=zadanie.gettime_cmd();
     pinres.time_res=zadanie.gettime_res();
       
     
-    jc.add_PingRes(pinres);
-    jc.JdbcConect_pingresult(maks);
+    JdbcConnect.add_PingRes(pinres);
+    JdbcConnect.JdbcConect_pingresult(maks);
 }	
 
 }

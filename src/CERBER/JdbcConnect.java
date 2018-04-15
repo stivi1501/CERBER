@@ -58,10 +58,10 @@ public static void jdbc_reqest_cerber_update1(String ip,String time_cmd,String t
 		                         System.out.println("VendorError: "  + wyjatek.getErrorCode());
 		                        }
 }  	
-public static void jdbc_reqest_cerber_update2(String ip,String time_cmd,String time_res,String typee) 
+public static void jdbc_reqest_cerber_update2(String ip,String time_cmd,String time_res,String typee,String nnn) 
 {
 	String polaczenieURL = "jdbc:mysql://localhost/CERBER?user=root&password=";
-	String query = "update cerber_plan set status=2,time_res='"+time_res+"' where ip='"+ip+"' AND time_cmd='"+time_cmd+"' AND type='"+typee+"'";        
+	String query = "update cerber_plan set status=2,time_res='"+time_res+"' where ip='"+ip+"' AND time_cmd='"+time_cmd+"' AND type='"+typee+"' AND nn='"+nnn+"'";        
 	Connection conn = null;           
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);

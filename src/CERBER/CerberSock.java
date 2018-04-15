@@ -5,7 +5,6 @@ public class CerberSock extends SocketCheck  implements Runnable{
 	int id;
 	int maks;
 	SockRes socres=new SockRes();
-	JdbcConnect jc;
 	
     public CerberSock(int id,PP zz,int maks) 
     {
@@ -23,8 +22,8 @@ public void run()
 	socres.ok_no= SocketCheck.check(zadanie.ip,Integer.parseInt(zadanie.nn));
 	socres.time_cmd=zadanie.time_cmd;
 	socres.time_res=zadanie.time_res;
-	JdbcConnect.jdbc_reqest_cerber_update2(zadanie.getip(),zadanie.gettime_cmd(),zadanie.gettime_res(),"s");
-	jc.add_SockRes(socres);
-	jc.JdbcConect_sockresult(maks);;
+    JdbcConnect.jdbc_reqest_cerber_update2(zadanie.getip(), zadanie.gettime_cmd(),zadanie.gettime_res(),zadanie.gettask(),zadanie.getnn());
+	JdbcConnect.add_SockRes(socres);
+	JdbcConnect.JdbcConect_sockresult(maks);;
 }	
 }
