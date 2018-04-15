@@ -61,7 +61,7 @@ Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania polecen
 </BR><B>Procedura bazodanowa save_res_sock</B></BR>
 Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "s"</BR>
 </BR>
-<B>Skryp budujący bazę daych umieszczony jest pod adrresem <a hrref="https://github.com/stivi1501/CERBER/blob/master/skrypt_bazy_danych.sql">https://github.com/stivi1501/CERBER/</BR>blob/master/skrypt_bazy_danych.sql</a>. </B>Został utwrzony rzy pomocy apliacji HeidiSQL
+<B>Skryp budujący bazę daych umieszczony jest pod adrresem <a hrref="https://github.com/stivi1501/CERBER/blob/master/skrypt_bazy_danych.sql">https://github.com/stivi1501/CERBER/blob/master/skrypt_bazy_danych.sql</a>. </B>Został utwrzony rzy pomocy apliacji HeidiSQL
 </p>
 
 <B>4.JAVA - KLASY,OBIEKTY</B></BR>
