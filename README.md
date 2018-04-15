@@ -60,10 +60,12 @@ KROK 20:Aktualizacja  kolumny "cerber_settings.dos" do wartości równej policzo
 Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "p"</BR>
 </BR><B>Procedura bazodanowa save_res_sock</B></BR>
 Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "s"</BR>
+</BR>
+<B>Skryp budujący bazę daych umieszczony jest pod adrresem <a hrref="https://github.com/stivi1501/CERBER/blob/master/skrypt_bazy_danych.sql">https://github.com/stivi1501/CERBER/blob/master/skrypt_bazy_danych.sql</a>. Zostal uttwrzony rzy pomocy apliacji HeidiSQL</B>
 </p>
 
 <B>4.JAVA - KLASY,OBIEKTY</B></BR>
-<img src="https://github.com/stivi1501/CERBER/blob/master/objectaid.PNG" width="1000">
+<img src="https://github.com/stivi1501/CERBER/blob/master/objectad.PNG" width="1000">
 
 </BR><B>Klasa Cerber</B></BR>
 <p align="justify">Jest to główa klasa aplikacji psiadająca metodę main(). Metoda ain uruchamiia przy pomocy klasy <B>"xxx"</B> procedurę bazodanową cerber_plan_proc oraz wukkonuje polecenia zlecone w tabeli "cerber_plan_temp" (uruchamia w wątkach klasy <B>"CerberPing"</B> lub <B>"CerberSock"</B>)</p>
