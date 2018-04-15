@@ -61,8 +61,8 @@ DELIMITER ;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cerber_gen_proc2`()
 BEGIN
-INSERT INTO cerber_plan(ip,nn,unix_start,type,time_cmd) select ip,n,0,"p","2000-01-01" FROM cerber_gen_ip;
-INSERT INTO cerber_plan(ip,nn,unix_start,type,time_cmd) select ip,port,0,"s","2000-01-01" FROM cerber_gen_ip,cerber_gen_port;
+INSERT INTO cerber_plan(ip,nn,type,time_cmd) select ip,n,"p","2000-01-01" FROM cerber_gen_ip;
+INSERT INTO cerber_plan(ip,nn,type,time_cmd) select ip,port,"s","2000-01-01" FROM cerber_gen_ip,cerber_gen_port;
 
 END//
 DELIMITER ;
@@ -133,7 +133,7 @@ SET threads_limit=(SELECT threads FROM cerber_settings LIMIT 1)-threads_active;
 SET threads_limit=(SELECT CASE WHEN threads_limit<0 THEN 0 ELSE threads_limit END LIMIT 1);
 
 INSERT INTO cerber_plan_temp(ip,nn,status,type,time_cmd,lp) SELECT ip,nn,status,type,time_cmd,t2.lp FROM cerber_plan t1,cerber_plan_lp t2 WHERE status=0 AND time_cmd<now() ORDER BY time_cmd ASC,type LIMIT threads_limit;
-UPDATE cerber_plan_temp t1,cerber_plan t2 SET t2.status=1,time_res=now() WHERE t1.ip=t2.ip AND t1.time_cmd=t2.time_cmd AND t1.type=t2.type AND t2.status<>2;
+UPDATE cerber_plan_temp t1,cerber_plan t2 SET t2.status=1,time_res=now() WHERE t1.ip=t2.ip AND t1.time_cmd=t2.time_cmd AND t1.type=t2.type AND t1.nn=t2.nn AND t2.status<>2;
 SET id_min_v=(select min(id)-1 min_lp FROM cerber_plan_temp t1,cerber_plan_lp t2 WHERE t1.lp=t2.lp limit 1);
 UPDATE cerber_plan_lp SET min_lp=id_min_v;
 
@@ -149,12 +149,13 @@ CREATE TABLE IF NOT EXISTS `cerber_plan_temp` (
   `ip` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL,
   `nn` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT '0',
+  `unix_start` bigint(20) DEFAULT NULL,
   `type` varchar(1) COLLATE utf8_polish_ci DEFAULT NULL,
   `time_cmd` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `lp` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci ROW_FORMAT=COMPACT;
 
 -- Data exporting was unselected.
 -- Zrzut struktury tabela cerber.cerber_settings
@@ -166,22 +167,6 @@ CREATE TABLE IF NOT EXISTS `cerber_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- Data exporting was unselected.
--- Zrzut struktury procedura cerber.cerber_update
-DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `cerber_update`()
-BEGIN
-UPDATE cerber_setings SET dos=0,dop=0;
-UPDATE cerber_setings t1,(SELECT count(*) robi_sie FROM cerber_plan WHERE status=1) t2 SET exec=robi_sie;
-UPDATE cerber_setings SET dop=1 WHERE exec<=threads;
-UPDATE cerber_setings SET dop=0 WHERE exec>threads;
-UPDATE cerber_setings SET dos=1 WHERE exec<=threads;
-UPDATE cerber_setings SET dos=0 WHERE exec>threads;
-
-UPDATE cerber_setings t1,(SELECT count(*) do_zrobienia FROM cerber_plan WHERE status<1 AND type='p') t2 SET dop=0 WHERE do_zrobienia=0;
-UPDATE cerber_setings t1,(SELECT count(*) do_zrobienia FROM cerber_plan WHERE status<1 AND type='s') t2 SET dos=0 WHERE do_zrobienia=0;
-END//
-DELIMITER ;
-
 -- Zrzut struktury procedura cerber.save_res_ping
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `save_res_ping`(
