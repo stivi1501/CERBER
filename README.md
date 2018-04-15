@@ -65,10 +65,9 @@ Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania polecen
 </p>
 
 <B>4.JAVA - KLASY,OBIEKTY</B></BR>
-<img src="https://github.com/stivi1501/CERBER/blob/master/objectad.PNG" width="1000">
 
 </BR><B>Klasa Cerber</B></BR>
-<p align="justify">Jest to główa klasa aplikacji psiadająca metodę main(). Metoda ain uruchamiia przy pomocy klasy <B>"xxx"</B> procedurę bazodanową cerber_plan_proc oraz wukkonuje polecenia zlecone w tabeli "cerber_plan_temp" (uruchamia w wątkach klasy <B>"CerberPing"</B> lub <B>"CerberSock"</B>)</p>
+<p align="justify">Jest to główa klasa aplikacji psiadająca metodę main(). Metoda main uruchamia przy pomocy klasy <B>"JdbcConnect"</B> procedurę bazodanową "cerber_plan_proc" oraz wykonuje polecenia zlecone w tabeli "cerber_plan_temp" (uruchamia w wątkach klasy <B>"CerberPing"</B> lub <B>"CerberSock"</B>)</p>
 
 </BR><B>Klasa PingCMD</B></BR>
 <p align="justify">Jest to klasa obrabiająca windowsowe plecenie PING</p>
@@ -94,7 +93,9 @@ Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania polecen
 
 </BR><B>Klasa SockRes</B></BR>
 <p align="justify">Jest to klasa  kontener danych</p>
-
+</BR>
+<B>5.Opis działania</B></BR>
+Po uruchomieni metklasy ody main() Cerbber zostaje uruchomiona metoda statyczna jdbc_plan_cerber_proc() klasy JdbcConnect (która uruchamia procedurę bazodanową "cerber_plan_proc()"). Następnie uruchamiane jst pobieranie nastaw z metod jdbc_count_dop() i jdbc_count_dop() klasy JdbcConnect (pobieranie daych z odpowiednich kolumn tabeli "cerber_settings").
 
 
 
