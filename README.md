@@ -96,8 +96,8 @@ Skrypt budujący bazę daych umieszczony jest pod adrresem <B><a href="https://g
 </BR>
 <B>5.Opis działania</B></BR>
 <p align="justify">
-Po uruchomieniu metody "main()" klasy "Cerbber" zostaje uruchomiona metoda statyczna "jdbc_plan_cerber_proc()" klasy "JdbcConnect" (która uruchamia procedurę bazodanową "cerber_plan_proc()"). Następnie uruchamiane jest pobieranie nastaw z metod jdbc_count_dop() (do ziennej maksp) i jdbc_count_dos() (do ziennej makss) klasy JdbcConnect (pobieranie daych z odpowiednich kolumn tabeli "cerber_settings"). 
-W kolejnym kroku zmienne maksp i makss są sumowane do zmiennej maks (rónej ilości wierszy w tabeli "cerber_plan_temp") i tworzona pętla z ilością powtórzeń maks.
+Po uruchomieniu metody "main()" klasy "Cerbber" zostaje uruchomiona metoda statyczna "jdbc_plan_cerber_proc()" klasy "JdbcConnect" (która uruchamia procedurę bazodanową "cerber_plan_proc()"). Następnie uruchamiane jest pobieranie nastaw z metod jdbc_count_dop() (przepsane do zmiennej "maksp") i jdbc_count_dos() (przepsane do zmiennej "makss") klasy JdbcConnect (pobieranie daych z odpowiednich kolumn tabeli "cerber_settings"). 
+W kolejnym kroku zmienne maksp i makss są sumowane do zmiennej maks (równej ilości wierszy w tabeli "cerber_plan_temp") i tworzona pętla z ilością powtórzeń maks. W każdej iteracji "i" pętli (gdzie "i" jest z zakresu od 1 do "maks") pobierany jest przy pomocy metody jdbc_PPOnId(i+1) wiersz z tabeli "cerber_plan_temp" z baadaniem. Na podstawie atrybutu "type" tworzony jest obiekt klasy "CerberPing" lub "CerberSock". 
 </p>
 
 
