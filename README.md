@@ -49,7 +49,7 @@ KROK 12:Przypisanie zmiennej <B>"cerber_plan_temp"</B> wartości równej policzo
 KROK 13:Przypisanie zmiennej <B>"threads_limit"</B> wartości z kolumny "cerber_settings.threads" minus wartość zmiennej <B>timeout_ress</B> (z KROK'u 5),</BR>
 KROK 14:Przypisanie zmiennej <B>"threads_limit"</B> wartości 0 jeśli wartość jeest ujemna</BR>
 KROK 15:Wstawienie do tabeli <B>"cerber_plan_temp"</B>  SELECT'a z tabeli "cerber_plan" z "limit threads_limit" (dozwolona ilość wątków inus akywne),</BR>
-KROK 16:Aktualizaja kolumny "cerber_plan.status" do wartości 1 na podstawie istniejących odpowiednich wpisów w tabeli "cerber_plan_temp" (warnek współistnienia takich samych wpisów w kolumnach ip, time_cmd oraz "cerber_plan.status" nie równy 2),</BR>
+KROK 16:Aktualizaja kolumny "cerber_plan.status" do wartości 1 na podstawie istniejących odpowiednich wpisów w tabeli "cerber_plan_temp" (warunek współistnienia takich samych wpisów w kolumnach ip, time_cmd,nn oraz "cerber_plan.status" nie równy 2),</BR>
 KROK 17:Przypisane zmiennej <B>id_min_v</B> najmiejszej  wartości z kolumny "cerber_plan_temp.id" minus 1 dla kolumny "cerber_plan_temp.lp" jak w kolumnie "cerber_plan_lp.lp" ,</BR>
 KROK 18:Aktualizacja  kolumny "cerber_plan_lp.lp" do warośc zmiennej <B>id_min_v</B> (KROK 17),</BR>
 KROK 19:Aktualizacja  kolumny "cerber_settings.dop" do wartości równej policzonej ilości wierszy z kolumną "cerber_plan_temp.type" równą "p",</BR>
