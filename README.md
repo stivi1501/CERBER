@@ -101,7 +101,7 @@ Po uruchomieniu metody "main()" klasy "Cerber" zostaje uruchomiona metoda statyc
 W kolejnym kroku zmienne maksp i makss są sumowane do zmiennej maks (równej ilości wierszy w tabeli "cerber_plan_temp") i tworzona pętla z ilością powtórzeń "maks". W każdej iteracji "i" pętli (gdzie "i" jest z zakresu od 0 do "maks") pobierany jest przy pomocy metody jdbc_PPOnId(i+1) wiersz (zadanie do wykonania) z tabeli "cerber_plan_temp". Następnie na podstawie atrybutu "type" tworzony jest obiekt klasy "CerberPing" lub "CerberSock". Obiekty "CerberPing" oraz "CerberSock" uaktualniają kolumne "status" wiersza-zadania poprzeez metodę "jdbc_reqest_cerber_update2" klasy "JdbcConnect"  i zapisują efekty swojej działalności odpowiednio przez metody "add_PingRes","JdbcConect_pingresult" (po zwróeniu ostatniego wyniku) i "add_SockRes","JdbcConect_sockresult" (po zwróeniu ostatniego wyniku) klasy "JdbcConnect" w taeli "cerber_plan" (a właciwie uaktualniają ją). Metoda "jdbc_reqest_cerber_update2()" zmienia status koumny "staus" na 2 (badanie wykonane)
 </p>
 
-<B>5.Opis uruchomienia</B></BR>
+<B>6.Opis uruchomienia</B></BR>
 <p align="justify">
 Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stefa\eclipse-workspace\CERBER\src\CERBER\ExePingCMD.jar") powinno wykonuwać się cyklicznie przy pomocy systemowego "Harmonogram zadań" lub pętli "loop.bat"
 </p>
