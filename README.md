@@ -95,7 +95,8 @@ Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania polecen
 <p align="justify">Jest to klasa  kontener danych</p>
 </BR>
 <B>5.Opis działania</B></BR>
-Po uruchomieni metklasy ody main() Cerbber zostaje uruchomiona metoda statyczna jdbc_plan_cerber_proc() klasy JdbcConnect (która uruchamia procedurę bazodanową "cerber_plan_proc()"). Następnie uruchamiane jst pobieranie nastaw z metod jdbc_count_dop() i jdbc_count_dop() klasy JdbcConnect (pobieranie daych z odpowiednich kolumn tabeli "cerber_settings").
+Po uruchomieniu metody "main()" klasy "Cerbber" zostaje uruchomiona metoda statyczna "jdbc_plan_cerber_proc()" klasy "JdbcConnect" (która uruchamia procedurę bazodanową "cerber_plan_proc()"). Następnie uruchamiane jest pobieranie nastaw z metod jdbc_count_dop() (do ziennej maksp) i jdbc_count_dos() (do ziennej makss) klasy JdbcConnect (pobieranie daych z odpowiednich kolumn tabeli "cerber_settings"). 
+w kolejnym kroku zmienne maksp i makss są sumowane do zmiennej maks (rónej ilości wierszy w tabeli "cerber_plan_temp") i tworzona pętla z ilością powtórzeń maks.
 
 
 
