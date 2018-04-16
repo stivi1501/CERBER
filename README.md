@@ -108,7 +108,7 @@ Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stef
 
 <B>7.Test głównej funkcjonalności - PING'wania i sprawdzania SOCKET'a</B></BR>
 <p align="justify">
-  Link do filmu na YOUTUBE >>><a href="https://www.youtube.com/embed/HrAPd-JNU1s">FILM</a>
+  Link do filmu na  <a href="https://www.youtube.com/embed/HrAPd-JNU1s">YOUTUBE</a>
   </BR>
  Scenariusz testu: </BR>
   
