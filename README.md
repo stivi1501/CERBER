@@ -109,7 +109,7 @@ Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stef
 <B>7.Test głównej funkcjonalności - PING'owania i sprawdzania SOCKET'a</B></BR>
 <p align="justify">
   Link do filmu na  <a href="https://www.youtube.com/embed/HrAPd-JNU1s">YOUTUBE</a>
-  </BR>
+  </BR></BR>
  Zadanie: </BR>
  Aplikacja ma przepingować adresy od 192.168.1.1 do 192.168.1.45 i sprawdzić dla tych adresów otwartość SOCKET'ów 21,22,23.</BR></BR>
  Harmonogram:</BR>
@@ -124,7 +124,7 @@ Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stef
  1.08-1.32 wątki wirtualnej maszyny JAVA numer 2 zwracają wyniki do bazy dannych</BR>
  1.43-2.21 Pokazanie wyników  bazie danych (2.01 - 192.168.1.1 i 192.168.1.5 pingują, 2.10 192.168.1.2 pinguje <kolumna recceive wynosi 4>, 2.21 192.168.1.5 ma otwarty SOCKET 23)</BR>
  2.21-2.32 widok na konsole routera.
-</BR>
+</BR></BR>
 Wnioski :</BR>
 Aplikacja poprawne spingowała fragment siieci. Wykryła "aktywne" urządzenia i otwarty SOCKET.
 
