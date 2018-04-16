@@ -120,16 +120,13 @@ Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stef
  0.21-0.31 pokazane wypełnionej tabeli "cerber_plan" (zadania są zlecone,kolumny wyników są puste)</BR>
  0.31-0.37 utworzenie 150 wątków w wirtualnnej maszynie JAVA numer 1 ( 45 dla PING'ów i 105 dla SOCKET'ów zgodnie z ograniczeniem)</BR>
  1.00-1.08 utworzenie 30 wątków w wirtualnnej maszynie JAVA numer 2 ( pozostałe zadania ze 180)</BR>
+ 0.37-1.11 wątki wirtualnej maszyny JAVA numer 1 zwracają wyniki do bazy dannych</BR>
+ 1.08-1.32 wątki wirtualnej maszyny JAVA numer 2 zwracają wyniki do bazy dannych</BR>
+ 1.43-2.21 Pokazanie wyników  bazie danych (2.01 - 192.168.1.1 i 192.168.1.5 pingują, 2.10 192.168.1.2 pinguje <kolumna recceive wynosi 4>, 2.21 192.168.1.5 ma otwarty SOCKET 23)</BR>
+ 2.21-2.32 widok na konsole routera.
 </BR>
-</BR>
-</BR>
-</BR>
-</BR>
-</BR>
-</BR>
- 
- 
-2.10 
+Wnioski :</BR>
+Aplikacja poprawne spingowała fragment siieci. Wykryła "aktywne" urządzenia i otwarty SOCKET.
 
   
 </p>
