@@ -65,7 +65,7 @@ Skrypt budujący bazę daych umieszczony jest pod adrresem <B><a href="https://g
 </p>
 
 <B>4.JAVA - KLASY,OBIEKTY</B></BR>
-
+<img src="https://github.com/stivi1501/CERBER/blob/master/oblectaid.PNG"  width="900">
 </BR><B>Klasa Cerber</B></BR>
 <p align="justify">Jest to główa klasa aplikacji psiadająca metodę main(). Metoda main uruchamia przy pomocy klasy <B>"JdbcConnect"</B> procedurę bazodanową "cerber_plan_proc" oraz wykonuje polecenia zlecone w tabeli "cerber_plan_temp" (uruchamia w wątkach klasy <B>"CerberPing"</B> lub <B>"CerberSock"</B>)</p>
 
