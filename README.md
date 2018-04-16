@@ -106,7 +106,7 @@ W kolejnym kroku zmienne maksp i makss są sumowane do zmiennej maks (równej il
 Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stefa\eclipse-workspace\CERBER\src\CERBER\ExePingCMD.jar") powinno wykonuwać się cyklicznie przy pomocy systemowego "Harmonogram zadań" lub pętli "loop.bat"
 </p>
 
-<B>7.Test głównej funkcjonalności - PING'wania i sprawdzania SOCKET'a</B></BR>
+<B>7.Test głównej funkcjonalności - PING'owania i sprawdzania SOCKET'a</B></BR>
 <p align="justify">
   Link do filmu na  <a href="https://www.youtube.com/embed/HrAPd-JNU1s">YOUTUBE</a>
   </BR>
@@ -114,18 +114,23 @@ Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stef
  Aplikacja ma przepingować adresy od 192.168.1.1 do 192.168.1.45 i sprawdzić dla tych adresów otwartość SOCKET'ów 21,22,23.</BR></BR>
  Harmonogram:</BR>
  0:00-0:06 podgląd ilości wątków dla wszystkich maszyn wirtualnych JAVA (150)</BR>
- 0.06-0.10 uruchomienie i natychmiatowe zamknięcie wirualnej maszyny JAVA numer 1 z powodu braku zadań (pusta tabela "cerber_lan")</BR>
- </BR>
- </BR>
- </BR>
- </BR>
+ 0.06-0.10 uruchomienie i natychmiatowe zamknięcie wirualnej maszyny JAVA numer 1 z powodu braku zadań (pusta tabela "cerber_plan")</BR>
+ 0.10-0.15 pokazanie pustej tabeli "cerber_plan"</BR>
+ 0.15-0.21 uruchomienie procedury bazodanowej "cerber_gen_proc2" (wypełnienie tabeli "cerber_plan") </BR>
+ 0.21-0.31 pokazane wypełnionej tabeli "cerber_plan" (zadania są zlecone,kolumny wyników są puste)</BR>
+ 0.31-0.37 utwoorzenie 150 wątków w wirtualnnej maszynie JAVA numer 1 ( 45 dla PING'ów i 105 dla SOCKET'ów zgodnie z ograniczeniem)</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
  
  
  
- Badanie jest przeprawadzzan w siecci lokalnej z następującymmmi zajętymi adresami:</BR>
-  192.168.1.1,192.168.1.2 (tu jest zainstaowana aplikacja),192.168.1.5. 
-  
-  
+
   
 </p>
 
