@@ -111,7 +111,7 @@ Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stef
   Link do filmu na  <a href="https://www.youtube.com/embed/HrAPd-JNU1s">YOUTUBE</a>
   </BR>
  Zadanie: </BR>
- Aplikacja ma przepingować adresy od 192.168.1.1 do 192.168.1.45 i sprawdzić dla tych adresów otwartość SOCKET'ów 21,22,23.c
+ Aplikacja ma przepingować adresy od 192.168.1.1 do 192.168.1.45 i sprawdzić dla tych adresów otwartość SOCKET'ów 21,22,23.</BR></BR>
  Harmonogram:</BR>
  0:00-0:06 podgląd ilości wątków dla wszystkich maszyn wirtualnych JAVA (150)</BR>
  0.06-0.10 uruchomienie i natychmiatowe zamknięcie wirualnej maszyny JAVA numer 1 z powodu braku zadań (pusta tabela "cerber_lan")</BR>
