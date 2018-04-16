@@ -16,7 +16,7 @@ Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urz�
 - Xampp (wykrzystywana jedynie baza MariaDB <klon MySQL>),</BR>
 - konektor JAVA-MariaDB(MySQL) np. mysql-connector-java-5.1.45,</BR>
 - klient baz danych np. HeidiSQL,</BR>
-- Eclipse z Objectaid.</BR>
+- Eclipse z pluginem Objectaid.</BR>
 </BR>
 <B>3.BAZA DANYCH</B></BR>
 <p align="justify">Baza danych aplkacjii "CERBER" składa się z 4 tabel (plus 3 tabele generatora zapytań) i 4 procedur bazodanowych (plus 2 procedury generatora zapytań).</p>
@@ -126,7 +126,7 @@ Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stef
  2.21-2.32 widok na konsole routera.
 </BR></BR>
 Wnioski :</BR>
-Aplikacja poprawne spingowała fragment siieci. Wykryła "aktywne" urządzenia i otwarty SOCKET.
+Aplikacja poprawne spingowała fragment sieci. Wykryła "aktywne" urządzenia i otwarty SOCKET.
 
   
 </p>
