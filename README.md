@@ -106,6 +106,11 @@ W kolejnym kroku zmienne maksp i makss są sumowane do zmiennej maks (równej il
 Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stefa\eclipse-workspace\CERBER\src\CERBER\ExePingCMD.jar") powinno wykonuwać się cyklicznie przy pomocy systemowego "Harmonogram zadań" lub pętli "loop.bat"
 </p>
 
+<B>6.Sprawdzanie główwnej funkcjonalności</B></BR>
+<p align="justify">
+v
+</p>
 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HrAPd-JNU1s" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
