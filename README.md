@@ -110,7 +110,16 @@ Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stef
 <p align="justify">
   Link do filmu na  <a href="https://www.youtube.com/embed/HrAPd-JNU1s">YOUTUBE</a>
   </BR>
- Scenariusz testu: </BR>
+ Zadanie: </BR>
+ Aplikacja ma przepingować adresy od 192.168.1.1 do 192.168.1.45 i sprawdzić dla tych adresów otwartość SOCKET'ów 21,22,23.c
+ Harmonogram:</BR>
+ 
+ 
+ 
+ Badanie jest przeprawadzzan w siecci lokalnej z następującymmmi zajętymi adresami:</BR>
+  192.168.1.1,192.168.1.2 (tu jest zainstaowana aplikacja),192.168.1.5. 
+  
+  
   
 </p>
 
