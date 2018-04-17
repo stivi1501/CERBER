@@ -1,6 +1,6 @@
 # PROJEKT CERBER 
 </BR><B>1.CEL WYTWORZENIA APLIKACJI</B></BR></BR>
-Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać poprawność działania urządzeń w sieci pod względem odpowiedzi na PING' i otwartości odpowiednich SOCKET'ów. Uzyskana w wyniku działania aplikacji wiedza powinna posłużyc do diagnozy stanu urządzeń w sieci i identyfikacji ewentualnych uszkodzeń. Projekt nie zakłada wytworzenia GUI dla tej aplikacji. Sterowanie ma się odbywać poprzez wpisy bezpośrednio na bazie danych.</BR>
+<p align="justify">Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać poprawność działania urządzeń w sieci pod względem odpowiedzi na PING' i otwartości odpowiednich SOCKET'ów. Uzyskana w wyniku działania aplikacji wiedza powinna posłużyc do diagnozy stanu urządzeń w sieci i identyfikacji ewentualnych uszkodzeń. Projekt nie zakłada wytworzenia GUI dla tej aplikacji. Sterowanie ma się odbywać poprzez wpisy bezpośrednio na bazie danych.</p></BR>
 
 </BR><B>2.ŚRODOWISKO PROJEKTOWE I ŚRODOWISKO URUCHOMIENIOWE</B></BR></BR>
 Środowisko uruchomieniowe:</BR>
