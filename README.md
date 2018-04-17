@@ -25,29 +25,29 @@
 <img src="https://github.com/stivi1501/CERBER/blob/master/ping.PNG"  width="900">
 
 </BR><B>Tabela cerber_settings</B></BR>
-<p align="justify">W tabeli <B>"cerber_setings"</B> w kolumie <B>"cerber_setings.threads"</B> określamy maksymalną ilość wątków we wszystkich wirtualnych maszynach JAVA łącznie. W kolumnnie <B>"cerber_setings.timeout_res"</B> określamy maksymalny czas oczekiania na wynik określony w <B>"cerber_plan.time_res"</B> (przy <B>"cerber_plan.status"</B> równym 1).</p>
+<p align="justify">W tabeli <B>"cerber_settings"</B> w kolumie <B>"cerber_setings.threads"</B> określamy maksymalną ilość wątków we wszystkich wirtualnych maszynach JAVA łącznie. W kolumnnie <B>"cerber_settings.timeout_res"</B> określamy maksymalny czas oczekiania na wynik określony w <B>"cerber_plan.time_res"</B> (przy <B>"cerber_plan.status"</B> równym 1).</p>
 
 </BR><B>Tabela cerber_plan_temp</B></BR>
 <p align="justify">Tabela <B>"cerber_plan_temp"</B> jest tworzona przez procedurę bazodanową <B>cerber_plan_proc</B> i zawiera przepisane wartości z kolumn:<B>"cerber_plan.ip"</B>,<B>"cerber_plan.nn"</B>,<B>"cerber_plan.status"</B>, <B>"cerber_plan.type"</B>, <B>"cerber_plan.time_cmd"</B> oraz kolumne z autoinkrementacją <B>"cerber_plan.id"</B> i identyfikatorem wirtualnej maszyny <B>"cerber_plan.lp"</B></p>
 
 
 </BR><B>Tabela cerber_plan_lp</B></BR>
-<p align="justify">Tabela <B>"cerber_plan_lp"</B> jest tabelą pomocniczą, uaktualnianą przez <B>cerber_plan_proc</B>. Tabela zawiera idenryfikator aktualnie uruchanianej maszyny JAVA w <B>"cerber_plan_lp.lp"</B> oraz minimalną wartość kolumny z inkrementacją w <B>"cerber_plan_lp.min_lp"</B></p>
+<p align="justify">Tabela <B>"cerber_plan_lp"</B> jest tabelą pomocniczą, uaktualnianą przez <B>cerber_plan_proc</B>. Tabela zawiera idenryfikator aktualnie uruchomianej maszyny JAVA w <B>"cerber_plan_lp.lp"</B> oraz minimalną wartość kolumny <B>"cerber_plan_temp.id"</B> w <B>"cerber_plan_lp.min_lp"</B> dla aktualnej maszyny /jAVA</p>
 
 </BR><B>Procedura bazodanowa cerber_plan_proc</B></BR>
-<p align="justify">Jest to główna procedura aplikacji, decydująca o rozpoczęciu wątków (badania pleeie PING lub sprawdzanie zy jest otwarty SOCKET) i kontroluje ilość uruchomionych wątków dla wszystkich wirtualnych maszyn JAVA (aplikacja nie może przekraczać "cerber_setings.threads"). W ciele proedury zadeklarowane i używane są 4 zmiene: <B>threads_limit</B> (maksymalna ilość wątków),<B>threads_active</B> (ilość wątków atywnych),<B>id_min_v</B> (minimalna wartość "cerber_plan_temp.id" dla ostatniego wątku określonego w <B>"cerber_plan_lp.lp"</B>),<B>timeout_ress</B> (maksymalny czas oczekiwania na wynik po uruchomieniu komendy-badania)
+<p align="justify">Jest to główna procedura aplikacji, decydująca o rozpoczęciu wątków (badania plecenie PING lub sprawdzanie czy jest otwarty SOCKET) i kontroluje ilość uruchomionych wątków dla wszystkich wirtualnych maszyn JAVA (aplikacja nie może przekraczać iloścci zawartej w "cerber_setings.threads"). W ciele proedury zadeklarowane i używane są 4 zmiene: <B>threads_limit</B> (maksymalna ilość wątków),<B>threads_active</B> (ilość wątków atywnych),<B>id_min_v</B> (minimalna wartość "cerber_plan_temp.id" dla ostatniego wątku określonego w <B>"cerber_plan_lp.lp"</B>),<B>timeout_ress</B> (maksymalny czas oczekiwania na wynik po uruchomieniu komendy-badania)
 </BR>
 Działanie:</BR>
 KROK 1-4:Deklaracja zmiennych w proedurze :threads_limit, threads_active,id_min_v,</BR>
-KROK 5:Przypisane zmiennej <B>timeout_ress</B> wartości z koluny "cerber_setings.timeout_res",</BR>
-KROK 6:Restart komend-badań w któych okres oczekiwannia określony na wynik przekroczył wartość <B>timeout_ress</B> (zerowanie "cerber_plan.status"),</BR>
+KROK 5:Przypisane zmiennej <B>timeout_ress</B> wartości z kolumny "cerber_settings.timeout_res",</BR>
+KROK 6:Restart komend-badań w któych okres oczekiwannia na wynik przekroczył wartość <B>timeout_ress</B> (zerowanie "cerber_plan.status"),</BR>
 KROK 7:Inkrementacja "cerber_plan_lp.lp" (identyfikator wirtualnej maszyny JAVA),</BR>
 KROK 8-9:Zerowanie kolumn "cerber_plan.dop","cerber_plan.dos" jeśli są ujemne,</BR>
 KROK 10:DROP tabeli "cerber_plan_temp",</BR>
 KROK 11:Utworzenie tabeli "cerber_plan_temp" z kolumną "cerber_plan_temp.id" autoinkrementującą się,</BR>
 KROK 12:Przypisanie zmiennej <B>"cerber_plan_temp"</B> wartości równej policzonej ilości wierszy z kolumną "cerber_plan.status" równą 1 (wątki aktywne),</BR>
 KROK 13:Przypisanie zmiennej <B>"threads_limit"</B> wartości z kolumny "cerber_settings.threads" minus wartość zmiennej <B>timeout_ress</B> (z KROK'u 5),</BR>
-KROK 14:Przypisanie zmiennej <B>"threads_limit"</B> wartości 0 jeśli wartość jeest ujemna</BR>
+KROK 14:Przypisanie zmiennej <B>"threads_limit"</B> wartości 0 jeśli wartość zmiennej jest ujemna,</BR>
 KROK 15:Wstawienie do tabeli <B>"cerber_plan_temp"</B>  SELECT'a z tabeli "cerber_plan" z "limit threads_limit" (dozwolona ilość wątków inus akywne),</BR>
 KROK 16:Aktualizaja kolumny "cerber_plan.status" do wartości 1 na podstawie istniejących odpowiednich wpisów w tabeli "cerber_plan_temp" (warunek współistnienia takich samych wpisów w kolumnach ip, time_cmd,nn oraz "cerber_plan.status" nie równy 2),</BR>
 KROK 17:Przypisane zmiennej <B>id_min_v</B> najmiejszej  wartości z kolumny "cerber_plan_temp.id" minus 1 dla kolumny "cerber_plan_temp.lp" jak w kolumnie "cerber_plan_lp.lp" ,</BR>
@@ -57,9 +57,9 @@ KROK 20:Aktualizacja  kolumny "cerber_settings.dos" do wartości równej policzo
 </BR>
 
 <B>Procedura bazodanowa save_res_ping</B></BR>
-Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "p"</BR>
+Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) klasy "CerberPing",</BR>
 </BR><B>Procedura bazodanowa save_res_sock</B></BR>
-Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny) zadania poleceniem PING na podstawie kolummn "ip","time_cmd" oraz kolumny type równej "s"</BR>
+Procedura ma za zadanie zapisywać wyniki(aktualizować kolumny)  klasy "CerberSock",</BR>
 </BR>
 Skrypt budujący bazę daych umieszczony jest pod adrresem <B><a href="https://github.com/stivi1501/CERBER/blob/master/skrypt_bazy_danych.sql">https://github.com/stivi1501/CERBER/blob/master/skrypt_bazy_danych.sql</a>. </B>Został on utwrzony rzy pomocy apliacji HeidiSQL.
 </p>
@@ -97,13 +97,13 @@ Skrypt budujący bazę daych umieszczony jest pod adrresem <B><a href="https://g
 
 <B>5.Opis działania</B></BR>
 <p align="justify">
-Po uruchomieniu metody "main()" klasy "Cerber" zostaje uruchomiona metoda statyczna "jdbc_plan_cerber_proc()" klasy "JdbcConnect" (która uruchamia procedurę bazodanową "cerber_plan_proc()"). Następnie uruchamiane jest pobieranie nastaw z metod jdbc_count_dop() (przepsane do zmiennej "maksp") i jdbc_count_dos() (przepsane do zmiennej "makss") klasy JdbcConnect (dane poierane z odpowiednich kolumn tabeli "cerber_settings"). 
-W kolejnym kroku zmienne maksp i makss są sumowane do zmiennej maks (równej ilości wierszy w tabeli "cerber_plan_temp") i tworzona pętla z ilością powtórzeń "maks". W każdej iteracji "i" pętli (gdzie "i" jest z zakresu od 0 do "maks") pobierany jest przy pomocy metody jdbc_PPOnId(i+1) wiersz (zadanie do wykonania) z tabeli "cerber_plan_temp". Następnie na podstawie atrybutu "type" tworzony jest obiekt klasy "CerberPing" lub "CerberSock". Obiekty "CerberPing" oraz "CerberSock" uaktualniają kolumne "status" wiersza-zadania poprzeez metodę "jdbc_reqest_cerber_update2" klasy "JdbcConnect"  i zapisują efekty swojej działalności odpowiednio przez metody "add_PingRes","JdbcConect_pingresult" (po zwróeniu ostatniego wyniku) i "add_SockRes","JdbcConect_sockresult" (po zwróeniu ostatniego wyniku) klasy "JdbcConnect" w taeli "cerber_plan" (a właciwie uaktualniają ją). Metoda "jdbc_reqest_cerber_update2()" zmienia status koumny "staus" na 2 (badanie wykonane)
+Po uruchomieniu metody "main()" klasy "Cerber" zostaje uruchomiona metoda "jdbc_plan_cerber_proc()" klasy "JdbcConnect" (która uruchamia procedurę bazodanową "cerber_plan_proc()"). Następnie uruchamiane jest pobieranie nastaw z metod jdbc_count_dop() (przepsane do zmiennej "maksp") i jdbc_count_dos() (przepsane do zmiennej "makss") klasy JdbcConnect (dane poierane z odpowiednich kolumn tabeli "cerber_settings"). 
+W kolejnym kroku zmienne maksp i makss są sumowane do zmiennej maks (równej ilości wierszy w tabeli "cerber_plan_temp") i jest tworzona pętla z ilością powtórzeń "maks". W każdej iteracji "i" pętli (gdzie "i" jest z zakresu od 0 do "maks") pobierany jest przy pomocy metody jdbc_PPOnId(i+1) wiersz (zadanie do wykonania) z tabeli "cerber_plan_temp". Następnie na podstawie atrybutu "type" tworzony jest obiekt klasy "CerberPing" lub "CerberSock". Obiekty "CerberPing" oraz "CerberSock" uaktualniają kolumne "status" na wartość 1  i zapisują efekty swojej działalności odpowiednio przez metody "add_PingRes","JdbcConect_pingresult" (po zwróceniu ostatniego wyniku) i "add_SockRes","JdbcConect_sockresult" (po zwróceniu ostatniego wyniku) klasy "JdbcConnect" w taeli "cerber_plan" (a właciwie uaktualniają ją).
 </p>
 
 <B>6.Opis uruchomienia</B></BR>
 <p align="justify">
-Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stefa\eclipse-workspace\CERBER\src\CERBER\ExePingCMD.jar") powinno wykonuwać się cyklicznie przy pomocy systemowego "Harmonogram zadań" lub pętli "loop.bat"
+Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stefa\eclipse-workspace\CERBER\src\CERBER\ExePingCMD.jar") powinno wykonywać się cyklicznie przy pomocy systemowego "Harmonogram zadań" lub pętli "loop.bat"
 </p>
 
 <B>7.Test głównej funkcjonalności - PING'owania i sprawdzania SOCKET'a</B></BR>
@@ -126,7 +126,7 @@ Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stef
  2.21-2.32 widok na konsole routera.
 </BR></BR>
 Wnioski :</BR>
-Aplikacja poprawne spingowała fragment sieci. Wykryła "aktywne" urządzenia i otwarty SOCKET.
+Aplikacja poprawne spingowała fragment sieci. Wykryła "aktywne" urządzenia (192.168.1.1,192.168.1.5 192.168.1.2 i 192.168.1.5) i otwarty SOCKET (23 na 192.168.1.5).
 
   
 </p>
