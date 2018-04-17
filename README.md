@@ -1,6 +1,6 @@
 # PROJEKT CERBER 
 </BR><B>1.CEL WYTWORZENIA APLIKACJI</B></BR></BR>
-Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urządzeń w sieci(projekt nie zakłada wytworzenia GUI). Sterowanie applikacją ma się odbywać poprzez wpisy bezpośrednio na bazie danych.</BR>
+Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać poprawność działania urządzeń w sieci pod względem odpowiedzi na PING' i otwartości odpowiednich SOCKET'ów. Uzyskana w wyniku działania aplikacji wiedza powinna posłużyc do diagnozy stanu urządzeń w sieci i identyfikacji ewentualnych uszkodzeń. Projekt nie zakłada wytworzenia GUI dla tej aplikacji. Sterowanie ma się odbywać poprzez wpisy bezpośrednio na bazie danych.</BR>
 
 </BR><B>2.ŚRODOWISKO PROJEKTOWE I ŚRODOWISKO URUCHOMIENIOWE</B></BR></BR>
 Środowisko uruchomieniowe:</BR>
@@ -9,7 +9,6 @@ Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urz�
 - Xampp (wykrzystywana jedynie baza MariaDB <klon MySQL>),</BR>
 - konektor JAVA-MariaDB(MySQL) np. mysql-connector-java-5.1.45,</BR>
 - klient baz danych np. HeidiSL.</BR>
-
 Środowisko projektowe:</BR>
 - Microsoft Windows 10 (z odblokowaną komendą ping),</BR>
 - Java 1.8,</BR>
@@ -18,10 +17,11 @@ Wytworzona w ramach projekt aplikacja ma za zadanie sprawdzać widoczność urz�
 - klient baz danych np. HeidiSQL,</BR>
 - Eclipse z pluginem Objectaid.</BR>
 </BR>
+
 <B>3.BAZA DANYCH</B></BR>
-<p align="justify">Baza danych aplkacjii "CERBER" składa się z 4 tabel (plus 3 tabele generatora zapytań) i 4 procedur bazodanowych (plus 2 procedury generatora zapytań).</p>
+<p align="justify">Baza danych aplkacjii "CERBER" składa się z 3 tabel i 3 procedur bazodanowych.</p>
 </BR><B>Tabela cerber_plan</B></BR>
-<p align="justify">Główną tabelą bazy danych jest tabela <B>"cerber_plan"</B>. To do tej tabeli są zlecane zapytania od użytkownika i do tej tabeli aplikacja zapisuje wyniki. W tabeli <B>"cerber_plan"</B> użytkownik określa "ip" badanego urządzenia w kolumnie <B>"cerber_plan.ip"</B>, typ badania w kolumnie <B>"cerber_plan.type"</B> (wartość "p" jeśli chcemy badać poleceniem PING,"s" sprawdzanie otwartości SOCKET'a w urządzeniu docelowym), szczegóły badania określamy w kolumnie <B>"cerber_plan.nn"</B> (w przypadku badania poleceniem PING określamy ilość pakietów wysłanych typu "ICMP Echo Request", w przypadku badania otawartości SOCKET'ów określamy numer badanego SOCKET'a). W kolumnie <B>"cerber_plan.status"</B> należy wpisać "0" ("0" oczekiwanie na uruchomienie,"1" w trakcie badania,"2" badanie zakończone). W kolumnie <B>"cerber_plan.time_cmd"</B> definiujemy najmłodszy czas aktywacji badania. W kolumnie <B>"cerber_plan.time_res"</B> zaznaczamy czas kolejnego etapu badania (dla <B>"cerber_plan.status"</B> równej 1 jest to czas rozpoczęcia badania, dla <B>"cerber_plan.status"</B> równej 2 jestt to czas otrzymmania wyników). Wyniki są zwracane w kolumnach <B>"cerber_plan.unreachable"</B>, <B>"cerber_plan.lost"</B>, <B>"cerber_plan.receive"</B>, <B>"cerber_plan.sent"</B>, <B>"cerber_plan.aveping"</B>, <B>"cerber_plan.maxping"</B>, <B>"cerber_plan.minping"</B> w przypadku testowania windowsowym poleceniem "PING" (kolumna <B>"cerber_plan.erro"</B> jest uzupełniana na podstawie eentualnego błędu w JAV'ie). Wynik testowania otwartości SOCKET'a jest uzupełniany w kolumnie <B>"cerber_plan.ok_no"</B> (0 SOCKET zamknięty, 1 SOOCKET otwarty).</BR></p>
+<p align="justify">Główną tabelą bazy danych jest tabela <B>"cerber_plan"</B>. To do tej tabeli są zapisywane zlecane dla aplikacji i do tej tabeli aplikacja zapisuje wyniki. W tabeli <B>"cerber_plan"</B> użytkownik określa "ip" badanego urządzenia w kolumnie <B>"cerber_plan.ip"</B>, typ badania w kolumnie <B>"cerber_plan.type"</B> (wpisujemy wartość "p" jeśli chcemy badać poleceniem PING lub "s" jeśi chcemy sprawdzać otwartości SOCKET'a w urządzeniu docelowym), szczegóły badania określamy w kolumnie <B>"cerber_plan.nn"</B> (w przypadku badania poleceniem PING określamy ilość pakietów wysłanych typu "ICMP Echo Request", w przypadku badania otawartości SOCKET'ów określamy numer badanego SOCKET'a). W kolumnie <B>"cerber_plan.status"</B> należy wpisać "0" ("0" oczekiwanie na uruchomienie,"1" w trakcie badania,"2" badanie zakończone) gdyż koolumna określa status zlecenia. W kolumnie <B>"cerber_plan.time_cmd"</B> definiujemy najmłodszy czas aktywacji badania. W kolumnie <B>"cerber_plan.time_res"</B> zaznaczamy czas kolejnego etapu badania (dla <B>"cerber_plan.status"</B> równej 1 jest to czas rozpoczęcia badania, dla <B>"cerber_plan.status"</B> równej 2 jestt to czas otrzymmania wyników). Wyniki są zwracane w kolumnach <B>"cerber_plan.unreachable"</B>, <B>"cerber_plan.lost"</B>, <B>"cerber_plan.receive"</B>, <B>"cerber_plan.sent"</B>, <B>"cerber_plan.aveping"</B>, <B>"cerber_plan.maxping"</B>, <B>"cerber_plan.minping"</B> w przypadku testowania windowsowym poleceniem "PING" (kolumna <B>"cerber_plan.erro"</B> jest uzupełniana na podstawie eentualnego błędu w JAV'ie). Wynik testowania otwartości SOCKET'a jest uzupełniany w kolumnie <B>"cerber_plan.ok_no"</B> (0 SOCKET zamknięty, 1 SOOCKET otwarty).</BR></p>
 <img src="https://github.com/stivi1501/CERBER/blob/master/ping.PNG"  width="900">
 
 </BR><B>Tabela cerber_settings</B></BR>
