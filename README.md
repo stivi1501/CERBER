@@ -76,10 +76,10 @@ Skrypt budujący bazę daych umieszczony jest pod adrresem <B><a href="https://g
 <p align="justify">Jest to klasa sprawdzająca otwarcie SOCKET'a</p>
 
 </BR><B>Klasa CerberPing</B></BR>
-<p align="justify">Jest to specjalizacja klasy PingCMD </p>
+<p align="justify">Jest to specjalizacja klasy PingCMD implemetuje interfejs Runnable</p>
 
 </BR><B>Klasa CerberSock</B></BR>
-<p align="justify">Jest to specjalizacja klasy SocketCheck</p>
+<p align="justify">Jest to specjalizacja klasy SocketCheck  implemetuje interfejs Runnable</p>
 
 </BR><B>Klasa JdbcConnect</B></BR>
 <p align="justify">Jest to klasa  pośredniicząca w wymianie danych z bazą dnych</p>
