@@ -115,9 +115,9 @@ Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stef
  Harmonogram:</BR>
  0:00-0:06 podgląd ilości wątków dla wszystkich maszyn wirtualnych JAVA (150)</BR>
  0.06-0.10 uruchomienie i natychmiatowe zamknięcie wirualnej maszyny JAVA numer 1 z powodu braku zadań (pusta tabela "cerber_plan")</BR>
- 0.10-0.15 pokazanie pustej tabeli "cerber_plan" (180 wierszy)</BR>
+ 0.10-0.15 pokazanie pustej tabeli "cerber_plan" (0 wierszy)</BR>
  0.15-0.21 uruchomienie procedury bazodanowej "cerber_gen_proc2" (wypełnienie tabeli "cerber_plan") </BR>
- 0.21-0.31 pokazane wypełnionej tabeli "cerber_plan" (zadania są zlecone,kolumny wyników są puste)</BR>
+ 0.21-0.31 pokazane wypełnionej tabeli "cerber_plan" (180 wierszy,zadania są zlecone,kolumny wyników są puste)</BR>
  0.31-0.37 utworzenie 150 wątków w wirtualnnej maszynie JAVA numer 1 ( 45 dla PING'ów i 105 dla SOCKET'ów zgodnie z ograniczeniem)</BR>
  1.00-1.08 utworzenie 30 wątków w wirtualnnej maszynie JAVA numer 2 ( pozostałe zadania ze 180)</BR>
  0.37-1.11 wątki wirtualnej maszyny JAVA numer 1 zwracają wyniki do bazy dannych</BR>
