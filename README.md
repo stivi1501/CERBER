@@ -8,12 +8,12 @@
 - Java 1.8,</BR>
 - Xampp (wykrzystywana jedynie baza MariaDB <klon MySQL>),</BR>
 - konektor JAVA-MariaDB(MySQL) np. mysql-connector-java-5.1.45 (<B><font color="silver">pamiętaj o odpowiednim ustawieniu "Referenced Libraries "</font></B>),</BR>
-- klient baz danych np. HeidiSL.</BR>
+- klient baz danych np. HeidiSL.</BR></BR>
 Środowisko projektowe:</BR>
 - Microsoft Windows 10 (z odblokowaną komendą ping),</BR>
 - Java 1.8,</BR>
 - Xampp (wykrzystywana jedynie baza MariaDB <klon MySQL>),</BR>
-- konektor JAVA-MariaDB(MySQL) np. mysql-connector-java-5.1.45,</BR>
+- konektor JAVA-MariaDB(MySQL) np. mysql-connector-java-5.1.45 (<B><font color="silver">pamiętaj o odpowiednim ustawieniu "Referenced Libraries "</font></B>),</BR>
 - klient baz danych np. HeidiSQL,</BR>
 - Eclipse z pluginem Objectaid.</BR>
 </BR>
