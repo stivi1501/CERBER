@@ -6,7 +6,7 @@
 Środowisko uruchomieniowe:</BR>
 - Microsoft Windows 10 (z odblokowaną komendą ping),</BR>
 - Java 1.8,</BR>
-- Xampp (wykrzystywana jedynie baza MariaDB <klon MySQL>),</BR></BR>
+- Xampp (wykrzystywana jedynie baza MariaDB <klon MySQL>),</BR>
 - klient baz danych np. HeidiSQL.</BR></BR>
 Środowisko projektowe:</BR>
 - Microsoft Windows 10 (z odblokowaną komendą ping),</BR>
