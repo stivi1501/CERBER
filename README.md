@@ -125,7 +125,7 @@ Wynikowy plik "ExePingCMD.jar" (a właśiwie instrukcje "java -jar D:\Users\stef
  2.21-2.32 widok na konsole routera.
 </BR></BR>
 Wnioski :</BR>
-Aplikacja poprawne spingowała fragment sieci. Wykryła "aktywne" urządzenia (192.168.1.1,192.168.1.5 192.168.1.2 i 192.168.1.5) i otwarty SOCKET (23 na 192.168.1.5).
+Aplikacja poprawne spingowała fragment sieci. Wykryła "aktywne" urządzenia (192.168.1.1,192.168.1.2 i 192.168.1.5) i otwarty SOCKET (23 na 192.168.1.5).
 
   
 </p>
